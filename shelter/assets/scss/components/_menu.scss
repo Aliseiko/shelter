@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  align-items: center;
+  @media (max-width: 710px) {
+    display: none;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu__item {
+  border-bottom: solid 3px transparent;
+  transition: 0.3s;
+  &:hover {
+    border-bottom: solid 3px $color-primory;
+  }
+}
+
+.menu__item_active {
+  border-bottom: solid 3px $color-primory;
+}

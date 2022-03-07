@@ -1,0 +1,65 @@
+h1 {
+  font-family: $header-font;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+}
+
+h2 {
+  font-family: $header-font;
+  font-size: 44px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 130%;
+  color: $header-2-5-color;
+}
+
+h3 {
+  font-family: $header-font;
+  font-size: 35px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $header-2-5-color;
+}
+
+h4 {
+  font-family: $header-font;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: $header-2-5-color;
+}
+
+h5 {
+  font-family: $header-font;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: $header-2-5-color;
+}
+
+.paragraph-l {
+  font-family: $text-font;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 160%;
+  color: $paragraph-l-color;
+}
+
+.paragraph-s {
+  font-family: $text-font;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 150%;
+  color: $paragraph-s-color;
+}

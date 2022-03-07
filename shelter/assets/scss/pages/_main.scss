@@ -1,0 +1,40 @@
+.header {
+  @media (max-width: 710px) {
+    margin-right: 43px;
+  }
+}
+
+.header__main {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  @media (max-width: $medium) {
+    margin-top: 30px;
+  }
+}
+
+.logo__title {
+  color: $color-primory;
+}
+
+.logo__text {
+  color: #fff;
+}
+
+.menu__link {
+  color: $color-dark-s;
+  transition: 0.3s;
+
+  &:hover {
+    color: $color-light-s;
+  }
+}
+
+.menu__link_active {
+  color: $color-light-s;
+}
+
+.asd {
+  height: 500px;
+  background-color: brown;
+  margin-top: -180px;
+}

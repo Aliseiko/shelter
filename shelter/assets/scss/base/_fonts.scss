@@ -5,7 +5,7 @@
   font-display: swap;
   src: local("Georgia"),
   local("Georgia-Regular"),
-  url("../../assets/fonts/Georgia.woff2") format("woff2")
+  url("../../fonts/Georgia.woff2") format("woff2")
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   font-weight: 400;
   font-display: swap;
   src: local("Georgia-Italic"),
-  url("../../assets/fonts/Georgia-Italic.woff2") format("woff2")
+  url("../../fonts/Georgia-Italic.woff2") format("woff2")
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   font-display: swap;
   src: local("Arial"),
   local("Arial-Regular"),
-  url("../../assets/fonts/ArialMT.woff2") format("woff2")
+  url("../../fonts/ArialMT.woff2") format("woff2")
 }
 
 @font-face {
@@ -33,6 +33,5 @@
   font-weight: 400;
   font-display: swap;
   src: local("Arial-Italic"),
-  url("../../assets/fonts/Arial-ItalicMT.woff2") format("woff2")
+  url("../../fonts/Arial-ItalicMT.woff2") format("woff2")
 }
-

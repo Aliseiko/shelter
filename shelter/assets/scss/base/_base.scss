@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: $wrapper-max-width;
+  margin: auto;
+}
+
+.container {
+  margin: 0 40px;
+  @media (max-width: $medium) {
+    margin: 0 30px;
+  }
+  @media (max-width: $small) {
+    margin: 0 10px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
