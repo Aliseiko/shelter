@@ -52,39 +52,55 @@
   padding-top: 343px;
   padding-bottom: 243px;
   @media (max-width: 1120px) {
-    padding-top: 150px;
-    padding-bottom: 693px;
     margin: auto;
+    padding-top: 180px;
+    padding-bottom: 692px;
   }
   @media (max-width: 670px) {
-    padding-top: 150px;
-    padding-bottom: 377px;
     margin: auto;
+    padding-top: 180px;
+    padding-bottom: 377px;
   }
 }
 
 .hero-title {
+
   max-width: 310px;
   margin: 0;
   color: #fff;
+  @media (max-width: 670px) {
+    margin: 0 auto;
+    font-size: 25px;
+    max-width: 230px;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
 }
 
 .hero-text {
+
   margin: 42px 0 0 0;
   color: $color-dark-s;
+  @media (max-width: 670px) {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 
 .hero-image {
   position: absolute;
   right: 40px;
   bottom: 0;
-  width: 689px;
+  width: 698px;
   height: auto;
   @media (max-width: 1120px) {
     width: 569px;
+    right: 30px;
   }
   @media (max-width: 670px) {
     width: 260px;
+    right: 10px;
   }
 }
 
@@ -92,7 +108,63 @@
   display: block;
   margin-top: 42px;
   @media (max-width: 1120px) {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* ------------ ABOUT ------------- */
+
+.about {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 215px 100px 215px;
+  @media (max-width: 1120px) {
+    flex-direction: column;
+    padding: 80px 20px 100px 20px;
+  }
+  @media (max-width: 670px) {
+    flex-direction: column;
+    padding: 42px 10px 42px 10px;
+  }
+}
+
+.about-image {
+  width: 300px;
+  height: auto;
+  @media (max-width: 1120px) {
+    order: 2;
+    margin-top: 80px;
+  }
+  @media (max-width: 670px) {
+    order: 2;
+    margin-top: 42px;
+    width: 260px;
+  }
+}
+
+.about-text-wrapper {
+  max-width: 430px;
+}
+
+.about-title {
+  margin: 0;
+  max-width: 370px;
+  @media (max-width: 670px) {
+    text-align: center;
+    font-size: 25px;
+    max-width: 290px;
+    margin: 0 auto;
+  }
+}
+
+.about-text-1,
+.about-text-2 {
+  margin: 25px 0 0 0;
+  @media (max-width: 670px) {
+    text-align: justify;
+    margin: 22px 15px 0 15px;
   }
 }

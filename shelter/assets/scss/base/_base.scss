@@ -3,8 +3,8 @@ html {
 }
 
 .wrapper {
-  max-width: $wrapper-max-width;
   min-width: 320px;
+  max-width: $wrapper-max-width;
   margin: auto;
 }
 

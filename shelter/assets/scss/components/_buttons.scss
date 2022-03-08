@@ -1,15 +1,16 @@
 .button {
   padding: 15px 45px;
-  border-radius: 100px;
-  cursor: pointer;
-  background: $color-primory;
-  border: 0;
   font-family: $header-font;
   font-size: 17px;
   line-height: 130%;
   letter-spacing: 0.06em;
   color: $color-dark-button;
+  border: 0;
+  border-radius: 100px;
+  background: $color-primory;
   transition: 0.3s;
+  cursor: pointer;
+
   &:hover {
     background: $color-primory-light;
   }
