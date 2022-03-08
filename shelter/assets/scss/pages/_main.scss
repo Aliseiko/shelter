@@ -69,11 +69,11 @@
   margin: 0;
   color: #fff;
   @media (max-width: 670px) {
+    max-width: 230px;
     margin: 0 auto;
     font-size: 25px;
-    max-width: 230px;
-    letter-spacing: 0.06em;
     text-align: center;
+    letter-spacing: 0.06em;
   }
 }
 
@@ -82,8 +82,8 @@
   margin: 42px 0 0 0;
   color: $color-dark-s;
   @media (max-width: 670px) {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
     text-align: center;
   }
 }
@@ -95,12 +95,12 @@
   width: 698px;
   height: auto;
   @media (max-width: 1120px) {
-    width: 569px;
     right: 30px;
+    width: 569px;
   }
   @media (max-width: 670px) {
-    width: 260px;
     right: 10px;
+    width: 260px;
   }
 }
 
@@ -117,9 +117,9 @@
 
 .about {
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
   padding: 80px 215px 100px 215px;
   @media (max-width: 1120px) {
     flex-direction: column;
@@ -140,8 +140,8 @@
   }
   @media (max-width: 670px) {
     order: 2;
-    margin-top: 42px;
     width: 260px;
+    margin-top: 42px;
   }
 }
 
@@ -150,13 +150,13 @@
 }
 
 .about-title {
-  margin: 0;
   max-width: 370px;
+  margin: 0;
   @media (max-width: 670px) {
-    text-align: center;
-    font-size: 25px;
     max-width: 290px;
     margin: 0 auto;
+    font-size: 25px;
+    text-align: center;
   }
 }
 
@@ -164,7 +164,78 @@
 .about-text-2 {
   margin: 25px 0 0 0;
   @media (max-width: 670px) {
-    text-align: justify;
     margin: 22px 15px 0 15px;
+    text-align: justify;
   }
+}
+
+/* ----------- FRIENDS ----------- */
+.friends {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background: #F6F6F6;
+}
+
+.friends-title {
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.slider__body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 90px;
+}
+
+.slider-card {
+  box-sizing: border-box;
+  width: 270px;
+  min-width: 270px;
+  height: 435px;
+  border: #292929 solid 2px;
+  list-style: none;
+}
+
+.friends-button {
+  display: block;
+  margin: 60px auto 0 auto;
+}
+
+/* ----------- HELP ---------------- */
+
+.help {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.help-title {
+  width: 310px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.help__cards-list {
+  max-width: 1026px;
+  margin: 60px auto 0 auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 120px;
+  justify-content: center;
+}
+
+.help__card {
+  width: 82px;
+  height: 113px;
+  box-sizing: border-box;
+  border: 2px solid black;
 }

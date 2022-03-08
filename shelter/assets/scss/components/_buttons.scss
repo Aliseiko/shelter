@@ -20,3 +20,38 @@
   border: 2px solid $color-primory;
   background: #fff;
 }
+
+.slider__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0;
+  font-family: $header-font;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  border: 2px solid $color-primory;
+  border-radius: 100px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $color-primory;
+  }
+}
+
+.slider__button_left {
+  &:after {
+    line-height: 1px;
+    content: url(../../icons/Arrow-left.svg);
+  }
+}
+
+.slider__button_right {
+  &:after {
+    line-height: 1px;
+    content: url(../../icons/Arrow-right.svg);
+  }
+}
