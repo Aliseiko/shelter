@@ -379,7 +379,6 @@ h2 {
   font-weight: 400;
   font-style: normal;
   line-height: 130%;
-  color: #545454;
 }
 
 h3 {
@@ -436,25 +435,48 @@ html {
 
 .wrapper {
   max-width: 1280px;
+  min-width: 320px;
   margin: auto;
 }
 
 .container {
-  margin: 0 40px;
+  padding: 0 40px;
 }
 @media (max-width: 768px) {
   .container {
-    margin: 0 30px;
+    padding: 0 30px;
   }
 }
 @media (max-width: 320px) {
   .container {
-    margin: 0 10px;
+    padding: 0 10px;
   }
 }
 
 .link {
   text-decoration: none;
+}
+
+.button {
+  padding: 15px 45px;
+  border-radius: 100px;
+  cursor: pointer;
+  background: #F1CDB3;
+  border: 0;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  transition: 0.3s;
+}
+.button:hover {
+  background: #FDDCC4;
+}
+
+.button_white {
+  border: 2px solid #F1CDB3;
+  background: #fff;
 }
 
 .logo__title {
@@ -530,6 +552,11 @@ html {
   align-items: center;
 }
 
+/* ------- HEADER ------------*/
+.header {
+  position: relative;
+  z-index: 2;
+}
 @media (max-width: 710px) {
   .header {
     margin-right: 43px;
@@ -566,10 +593,71 @@ html {
   color: #FAFAFA;
 }
 
-.asd {
-  height: 500px;
-  background-color: brown;
+/* ---------- HERO -----------*/
+.hero {
+  position: relative;
   margin-top: -180px;
+  background: url(../../images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.hero-text-wrapper {
+  max-width: 460px;
+  padding-top: 343px;
+  padding-bottom: 243px;
+}
+@media (max-width: 1120px) {
+  .hero-text-wrapper {
+    padding-top: 150px;
+    padding-bottom: 693px;
+    margin: auto;
+  }
+}
+@media (max-width: 670px) {
+  .hero-text-wrapper {
+    padding-top: 150px;
+    padding-bottom: 377px;
+    margin: auto;
+  }
+}
+
+.hero-title {
+  max-width: 310px;
+  margin: 0;
+  color: #fff;
+}
+
+.hero-text {
+  margin: 42px 0 0 0;
+  color: #CDCDCD;
+}
+
+.hero-image {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  width: 689px;
+  height: auto;
+}
+@media (max-width: 1120px) {
+  .hero-image {
+    width: 569px;
+  }
+}
+@media (max-width: 670px) {
+  .hero-image {
+    width: 260px;
+  }
+}
+
+.hero-button {
+  display: block;
+  margin-top: 42px;
+}
+@media (max-width: 1120px) {
+  .hero-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

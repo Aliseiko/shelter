@@ -1,0 +1,21 @@
+.button {
+  padding: 15px 45px;
+  border-radius: 100px;
+  cursor: pointer;
+  background: $color-primory;
+  border: 0;
+  font-family: $header-font;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color-dark-button;
+  transition: 0.3s;
+  &:hover {
+    background: $color-primory-light;
+  }
+}
+
+.button_white {
+  border: 2px solid $color-primory;
+  background: #fff;
+}
