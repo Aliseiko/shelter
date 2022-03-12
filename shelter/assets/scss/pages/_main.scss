@@ -174,40 +174,118 @@
   padding-top: 80px;
   padding-bottom: 100px;
   background: #F6F6F6;
+  @media (max-width: 670px) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    font-size: 25px;
+  }
 }
 
 .friends-title {
   max-width: 400px;
-  text-align: center;
   margin: 0 auto;
+  text-align: center;
+  @media (max-width: 670px) {
+    max-width: 300px;
+    font-size: 25px;
+  }
 }
 
 .slider {
   display: flex;
-  justify-content: space-between;
-  margin-top: 60px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 59px;
+  @media (max-width: 460px) {
+    justify-content: center;
+    margin-top: 42px;
+    gap: 20px 80px;
+  }
 }
 
 .slider__body {
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: 90px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 990px;
+  margin: 0;
+  //gap: 90px;
+  padding: 0;
+  list-style: none;
+  @media (max-width: 1120px) {
+    max-width: 580px;
+  }
+  @media (max-width: 720px) {
+    max-width: 270px;
+  }
+  @media (max-width: 460px) {
+    order: 1;
+  }
+}
+
+.slider__button_left {
+  @media (max-width: 460px) {
+    justify-content: center;
+    order: 2;
+  }
+}
+
+.slider__button_right {
+  @media (max-width: 460px) {
+    justify-content: center;
+    order: 3;
+  }
 }
 
 .slider-card {
-  box-sizing: border-box;
+  //box-sizing: border-box;
   width: 270px;
   min-width: 270px;
   height: 435px;
-  border: #292929 solid 2px;
-  list-style: none;
+  border-radius: 9px;
+  background: #FAFAFA;
+  //border: #292929 solid 2px;
+}
+
+.slider-card-2 {
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+.slider-card-3 {
+  @media (max-width: 1120px) {
+    display: none;
+  }
+}
+
+.slider-card__img-wrapper {
+  width: 100%;
+  height: 270px;
+}
+
+.slider-card__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.slider-card__bottom {
+  height: calc(100% - 270px);
+  text-align: center;
+}
+
+.slider-card__card-header {
+  margin: 30px 0;
+  text-align: center;
 }
 
 .friends-button {
   display: block;
   margin: 60px auto 0 auto;
+  @media (max-width: 460px) {
+    margin-top: 42px;
+  }
 }
 
 /* ----------- HELP ---------------- */
@@ -231,13 +309,13 @@
 }
 
 .help__cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 1026px;
   margin: 58px auto 0 auto;
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
   gap: 55px 119.3px;
-  justify-content: center;
   @media (max-width: 670px) {
     margin-top: 42px;
   }

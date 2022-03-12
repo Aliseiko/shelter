@@ -17,8 +17,13 @@
 }
 
 .button_white {
+  padding: 13px 43px;
   border: 2px solid $color-primory;
-  background: #fff;
+  background: transparent;
+
+  &:hover {
+    border-color: $color-primory-light;
+  }
 }
 
 .slider__button {
@@ -37,6 +42,7 @@
   border-radius: 100px;
   transition: 0.3s;
   cursor: pointer;
+
   &:hover {
     background: $color-primory;
   }
@@ -44,14 +50,14 @@
 
 .slider__button_left {
   &:after {
-    line-height: 1px;
     content: url(../../icons/Arrow-left.svg);
+    line-height: 1px;
   }
 }
 
 .slider__button_right {
   &:after {
-    line-height: 1px;
     content: url(../../icons/Arrow-right.svg);
+    line-height: 1px;
   }
 }

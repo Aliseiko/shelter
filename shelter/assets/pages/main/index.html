@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="width=device-width, initial-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
   <title>shelter</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preload" href="../../fonts/Georgia.woff2" as="font">
-  <link rel="preload" href="../../fonts/Georgia-Italic.woff2" as="font">
-  <link rel="preload" href="../../fonts/ArialMT.woff2" as="font">
-  <link rel="preload" href="../../fonts/Arial-ItalicMT.woff2" as="font">
+  <link href="styles.css" rel="stylesheet">
+  <link as="font" href="../../fonts/Georgia.woff2" rel="preload">
+  <link as="font" href="../../fonts/Georgia-Italic.woff2" rel="preload">
+  <link as="font" href="../../fonts/ArialMT.woff2" rel="preload">
+  <link as="font" href="../../fonts/Arial-ItalicMT.woff2" rel="preload">
 </head>
 <body>
 <div class="wrapper">
@@ -44,11 +44,11 @@
           and open heart. He or she will love you more than anybody else in the world, you will see!</p>
         <button class="button hero-button" type="button">Make a friend</button>
       </div>
-      <img class="hero-image" alt="Dog image" src="../../images/start-screen-puppy.png">
+      <img alt="Dog image" class="hero-image" src="../../images/start-screen-puppy.png">
     </section>
 
     <section class="about container">
-      <img class="about-image" src="../../images/about-pets.png" alt="Pets picture">
+      <img alt="Pets picture" class="about-image" src="../../images/about-pets.png">
       <div class="about-text-wrapper">
         <h3 class="about-title">About the shelter “Cozy House”</h3>
         <p class="about-text-1 paragraph-l">Currently we have 121 dogs and 342 cats on our hands and statistics show
@@ -69,9 +69,33 @@
       <div class="slider">
         <button class="slider__button slider__button_left" type="button"></button>
         <ul class="slider__body">
-          <li class="slider-card"></li>
-          <li class="slider-card"></li>
-          <li class="slider-card"></li>
+          <li class="slider-card">
+            <div class="slider-card__img-wrapper">
+              <img alt="Katrine photo" class="slider-card__img" src="../../images/pets-katrine.png">
+            </div>
+            <div class="slider-card__bottom">
+              <h4 class="slider-card__card-header">Katrine</h4>
+              <button class="button button_white card-button" type="button">Learn more</button>
+            </div>
+          </li>
+          <li class="slider-card slider-card-2">
+            <div class="slider-card__img-wrapper">
+              <img alt="Jennifer photo" class="slider-card__img" src="../../images/pets-jennifer.png">
+            </div>
+            <div class="slider-card__bottom">
+              <h4 class="slider-card__card-header">Jennifer</h4>
+              <button class="button button_white card-button" type="button">Learn more</button>
+            </div>
+          </li>
+          <li class="slider-card slider-card-3">
+            <div class="slider-card__img-wrapper">
+              <img alt="Woody photo" class="slider-card__img" src="../../images/pets-woody.png">
+            </div>
+            <div class="slider-card__bottom">
+              <h4 class="slider-card__card-header">Woody</h4>
+              <button class="button button_white card-button" type="button">Learn more</button>
+            </div>
+          </li>
 
         </ul>
         <button class="slider__button slider__button_right" type="button"></button>
