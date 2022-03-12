@@ -210,7 +210,6 @@
   width: 100%;
   max-width: 990px;
   margin: 0;
-  //gap: 90px;
   padding: 0;
   list-style: none;
   @media (max-width: 1120px) {
@@ -239,13 +238,11 @@
 }
 
 .slider-card {
-  //box-sizing: border-box;
   width: 270px;
   min-width: 270px;
   height: 435px;
   border-radius: 9px;
   background: #FAFAFA;
-  //border: #292929 solid 2px;
 }
 
 .slider-card-2 {
@@ -304,6 +301,7 @@
   margin: 0 auto;
   text-align: center;
   @media (max-width: 670px) {
+    max-width: 222px;
     font-size: 25px;
   }
 }
@@ -316,23 +314,47 @@
   margin: 58px auto 0 auto;
   text-align: center;
   gap: 55px 119.3px;
+  @media (max-width: 885px) {
+    gap: 55px 60px;
+  }
   @media (max-width: 670px) {
-    margin-top: 42px;
+    margin-top: 41px;
+  }
+  @media (max-width: 480px) {
+    justify-content: flex-start;
+    max-width: 290px;
+    gap: 30px;
   }
 }
 
 .help__card {
   height: 113px;
+  @media (max-width: 885px) {
+    width: 170px;
+  }
+  @media (max-width: 480px) {
+    width: 130px;
+    height: 87px;
+  }
 }
 
 .help__card-img {
   width: 60px;
   height: 60px;
   margin: 0 auto;
+  background-size: cover;
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .help__card-title {
   margin: 30px 0 0 0;
+  @media (max-width: 480px) {
+    margin-top: 20px;
+    font-size: 15px;
+  }
 }
 
 .pet-food {
