@@ -243,6 +243,7 @@
   height: 435px;
   border-radius: 9px;
   background: #FAFAFA;
+  cursor: pointer;
 }
 
 .slider-card-2 {
@@ -475,6 +476,11 @@
 
 .card-number {
   margin: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 560px) {
     font-size: 15px;
     line-height: 115%;

@@ -869,6 +869,7 @@ html {
   height: 435px;
   border-radius: 9px;
   background: #FAFAFA;
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -1136,6 +1137,9 @@ html {
 .card-number {
   margin: 0;
 }
+.card-number:hover {
+  text-decoration: underline;
+}
 @media (max-width: 560px) {
   .card-number {
     font-size: 15px;
@@ -1299,6 +1303,10 @@ html {
   .footer__address-2 {
     margin-top: 40px;
   }
+}
+
+.address-1-link {
+  line-height: 115%;
 }
 
 .footer__contacts-2 {
