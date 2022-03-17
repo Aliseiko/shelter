@@ -649,7 +649,7 @@ html {
   padding-top: 343px;
   padding-bottom: 243px;
 }
-@media (max-width: 1120px) {
+@media (max-width: 1150px) {
   .hero-text-wrapper {
     margin: auto;
     padding-top: 180px;
@@ -876,7 +876,11 @@ html {
   height: 435px;
   border-radius: 9px;
   background: #FAFAFA;
+  transition: 0.3s;
   cursor: pointer;
+}
+.slider-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 720px) {
@@ -925,6 +929,7 @@ html {
 .help {
   padding-top: 80px;
   padding-bottom: 100px;
+  text-align: center;
 }
 @media (max-width: 670px) {
   .help {
@@ -945,7 +950,7 @@ html {
   }
 }
 
-.help__cards-list {
+/*.help__cards-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -953,20 +958,44 @@ html {
   margin: 58px auto 0 auto;
   text-align: center;
   gap: 55px 119.3px;
-}
-@media (max-width: 885px) {
-  .help__cards-list {
+  @media (max-width: 885px) {
     gap: 55px 60px;
   }
-}
-@media (max-width: 670px) {
-  .help__cards-list {
+  @media (max-width: 670px) {
     margin-top: 41px;
+  }
+  @media (max-width: 480px) {
+    justify-content: flex-start;
+    max-width: 290px;
+    gap: 30px;
+  }
+}*/
+.help__cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1026px;
+  margin: 58px auto 0 auto;
+  justify-items: center;
+  gap: 55px 119.3px;
+}
+@media (max-width: 1279px) {
+  .help__cards-list {
+    display: inline-grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 55px 7.8125vw;
+  }
+}
+@media (max-width: 767px) {
+  .help__cards-list {
+    margin-top: 40px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 480px) {
   .help__cards-list {
-    justify-content: flex-start;
     max-width: 290px;
     gap: 30px;
   }
@@ -1251,7 +1280,7 @@ html {
 }
 @media (max-width: 420px) {
   .footer__email {
-    margin-top: 37px !important;
+    margin-top: 39px !important;
   }
 }
 
@@ -1298,7 +1327,7 @@ html {
 }
 @media (max-width: 420px) {
   .footer__address-1 {
-    margin-top: 40px;
+    margin-top: 39px;
   }
 }
 

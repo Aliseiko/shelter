@@ -51,7 +51,7 @@
   max-width: 460px;
   padding-top: 343px;
   padding-bottom: 243px;
-  @media (max-width: 1120px) {
+  @media (max-width: 1150px) {
     margin: auto;
     padding-top: 180px;
     padding-bottom: 692px;
@@ -243,7 +243,12 @@
   height: 435px;
   border-radius: 9px;
   background: #FAFAFA;
+  transition: 0.3s;
   cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .slider-card-2 {
@@ -291,6 +296,7 @@
 .help {
   padding-top: 80px;
   padding-bottom: 100px;
+  text-align: center;
   @media (max-width: 670px) {
     padding-top: 42px;
     padding-bottom: 42px;
@@ -307,7 +313,7 @@
   }
 }
 
-.help__cards-list {
+/*.help__cards-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -323,6 +329,31 @@
   }
   @media (max-width: 480px) {
     justify-content: flex-start;
+    max-width: 290px;
+    gap: 30px;
+  }
+}*/
+
+.help__cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1026px;
+  margin: 58px auto 0 auto;
+  justify-items: center;
+  gap: 55px 119.3px;
+  @media (max-width: 1279px) {
+    display: inline-grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 55px calc(60 * 100vw / 768);
+  }
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 480px) {
     max-width: 290px;
     gap: 30px;
   }
