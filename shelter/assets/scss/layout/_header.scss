@@ -3,8 +3,37 @@
 @import "../components/burger";
 
 .header {
+  position: relative;
+  z-index: 2;
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  @media (max-width: 767px) {
+    margin-right: 23px;
+  }
+  @media (max-width: 360px) {
+    margin-right: 43px;
+  }
+}
+
+.header__main {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  @media (max-width: 1279px) {
+    margin-top: 30px;
+  }
+}
+
+.logo {
+  position: relative;
+  z-index: 10;
+}
+
+.logo__title {
+  color: $color-primory;
+}
+
+.logo__text {
+  color: #fff;
 }

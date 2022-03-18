@@ -13,7 +13,7 @@ html {
   @media (max-width: $medium) {
     padding: 0 30px;
   }
-  @media (max-width: $small) {
+  @media (max-width: 360px) {
     padding: 0 10px;
   }
 }
