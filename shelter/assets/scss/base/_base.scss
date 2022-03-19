@@ -11,7 +11,7 @@ html {
 
 .container {
   padding: 0 40px;
-  @media (max-width: $medium) {
+  @media (max-width: 1279px) {
     padding: 0 30px;
   }
   @media (max-width: 360px) {

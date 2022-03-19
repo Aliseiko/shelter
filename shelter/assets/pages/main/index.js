@@ -23,3 +23,10 @@ nav.addEventListener('click', event => {
   }
 })
 
+// --------------- main slider ------------------
+async function getPets() {
+  const response = await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits');
+  return await response.json();
+}
+
+const pets = getPets();
