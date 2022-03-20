@@ -52,6 +52,7 @@
 .slider__button_left {
   &:after {
     content: url(../../icons/Arrow-left.svg);
+    height: 6px;
     line-height: 1px;
   }
 }
@@ -60,5 +61,6 @@
   &:after {
     content: url(../../icons/Arrow-right.svg);
     line-height: 1px;
+    height: 6px;
   }
 }

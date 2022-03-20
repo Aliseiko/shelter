@@ -154,9 +154,9 @@
 
 .friends-button {
   display: block;
-  margin: 50px auto 0 auto;
-  @media (max-width: 460px) {
-    margin-top: 42px;
+  margin: 18px auto 0 auto;
+  @media (max-width: 767px) {
+    margin-top: 0;
   }
 }
 
@@ -182,33 +182,12 @@
   }
 }
 
-/*.help__cards-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1026px;
-  margin: 58px auto 0 auto;
-  text-align: center;
-  gap: 55px 119.3px;
-  @media (max-width: 885px) {
-    gap: 55px 60px;
-  }
-  @media (max-width: 670px) {
-    margin-top: 41px;
-  }
-  @media (max-width: 480px) {
-    justify-content: flex-start;
-    max-width: 290px;
-    gap: 30px;
-  }
-}*/
-
 .help__cards-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1026px;
-  margin: 58px auto 0 auto;
+  margin: 59px auto 0 auto;
   justify-items: center;
   gap: 55px 119.3px;
   @media (max-width: 1279px) {

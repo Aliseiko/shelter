@@ -516,27 +516,49 @@ html {
 
 .slider__button_left:after {
   content: url(../../icons/Arrow-left.svg);
+  height: 6px;
   line-height: 1px;
 }
 
 .slider__button_right:after {
   content: url(../../icons/Arrow-right.svg);
   line-height: 1px;
+  height: 6px;
 }
 
 .slider {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 49px;
+  position: relative;
+  margin-top: 16px;
   transition: 0.3s;
 }
-@media (max-width: 470px) {
+@media (max-width: 767px) {
   .slider {
+    margin-top: 0;
+  }
+}
+
+.slider__buttons {
+  position: absolute;
+  top: calc(50% - 66px);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 40px;
+}
+@media (max-width: 1279px) {
+  .slider__buttons {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .slider__buttons {
+    top: auto;
+    bottom: 2px;
     justify-content: center;
-    margin-top: 32px;
-    gap: 10px 80px;
+    gap: 80px;
   }
 }
 
@@ -544,7 +566,8 @@ html {
   overflow: hidden;
   width: 100%;
   max-width: 990px;
-  padding: 10px;
+  margin: 0 auto;
+  padding: 42px;
 }
 @media (max-width: 1279px) {
   .slider__wrapper {
@@ -554,10 +577,19 @@ html {
 @media (max-width: 767px) {
   .slider__wrapper {
     max-width: 270px;
+    padding-bottom: 114px;
+  }
+}
+@media (max-width: 354px) {
+  .slider__wrapper {
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
 .slider__body {
+  position: relative;
+  z-index: 2;
   display: flex;
   margin: 0;
   list-style: none;
@@ -595,20 +627,20 @@ html {
     min-width: 270px;
   }
 }
-@media (max-width: 470px) {
+@media (max-width: 513px) {
   .slider__slide {
     order: 1;
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 513px) {
   .slider__button_left {
     justify-content: center;
     order: 2;
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 513px) {
   .slider__button_right {
     justify-content: center;
     order: 3;
@@ -625,7 +657,12 @@ html {
   cursor: pointer;
 }
 .slider-card:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+@media (max-width: 354px) {
+  .slider-card:hover {
+    box-shadow: 0 2px 23px 9px rgba(13, 13, 13, 0.04);
+  }
 }
 
 @media (max-width: 767px) {
@@ -1012,11 +1049,11 @@ html {
 
 .friends-button {
   display: block;
-  margin: 50px auto 0 auto;
+  margin: 18px auto 0 auto;
 }
-@media (max-width: 460px) {
+@media (max-width: 767px) {
   .friends-button {
-    margin-top: 42px;
+    margin-top: 0;
   }
 }
 
@@ -1045,32 +1082,12 @@ html {
   }
 }
 
-/*.help__cards-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1026px;
-  margin: 58px auto 0 auto;
-  text-align: center;
-  gap: 55px 119.3px;
-  @media (max-width: 885px) {
-    gap: 55px 60px;
-  }
-  @media (max-width: 670px) {
-    margin-top: 41px;
-  }
-  @media (max-width: 480px) {
-    justify-content: flex-start;
-    max-width: 290px;
-    gap: 30px;
-  }
-}*/
 .help__cards-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1026px;
-  margin: 58px auto 0 auto;
+  margin: 59px auto 0 auto;
   justify-items: center;
   gap: 55px 119.3px;
 }
