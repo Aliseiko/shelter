@@ -1,26 +1,27 @@
 const burgerButton = document.querySelector('.burger'),
-    menuCover = document.querySelector('.menu-cover'),
+    menuCover = document.querySelector('.cover'),
     nav = document.querySelector('.nav'),
     defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody'],
     petsNames = [];
 let pets,
-currentSliderPetsNames = defaultMainSliderPetsNames;
+    currentSliderPetsNames = defaultMainSliderPetsNames;
 
 // --------------- open / close menu ------------------
 function openCloseMenu() {
-  menuCover.classList.toggle('menu-cover_active');
+  menuCover.classList.toggle('cover_active');
   burgerButton.classList.toggle('burger_active');
   nav.classList.toggle('nav_active');
 }
 
 function closeMenu() {
-  menuCover.classList.remove('menu-cover_active');
+  menuCover.classList.remove('cover_active');
+  menuCover.classList.remove('cover_active-popup');
   burgerButton.classList.remove('burger_active');
   nav.classList.remove('nav_active');
 }
 
 burgerButton.addEventListener('click', openCloseMenu);
-menuCover.addEventListener('click', openCloseMenu);
+menuCover.addEventListener('click', closeMenu);
 nav.addEventListener('click', event => {
   if (event.target.classList.contains('menu__link')) {
     closeMenu()
@@ -36,7 +37,7 @@ async function getPets() {
 function createCard(petName) {
   let pet = pets.find(el => el.name === petName);
 
-  let card = `<li class="slider-card">
+  let card = `<li class="slider-card" onClick='openPopup()'>
                 <div class="slider-card__img-wrapper">
                   <img alt="${pet.name} photo" class="slider-card__img" src="${pet.img}">
                 </div>
@@ -65,7 +66,7 @@ function createSlide(petsNamesArr) {
 
 function createNextSlidePetsNames() {
   const namesArr = [];
-  
+
   while (namesArr.length < 3) {
     let name = petsNames[Math.floor(Math.random() * petsNames.length)];
     if (!currentSliderPetsNames.includes(name) && !namesArr.includes(name)) namesArr.push(name);
@@ -75,8 +76,8 @@ function createNextSlidePetsNames() {
 
 function sliderSlide(direction) {
   let nextSlidePetsNames = createNextSlidePetsNames(),
-  slider = document.querySelector('.slider__body'),
-  slide = createSlide(nextSlidePetsNames);
+      slider = document.querySelector('.slider__body'),
+      slide = createSlide(nextSlidePetsNames);
   if (direction === 'left') {
     slider.classList.add('slider__body_left');
     slider.prepend(slide);
@@ -93,6 +94,11 @@ function sliderSlide(direction) {
     }, 600);
   }
   currentSliderPetsNames = nextSlidePetsNames;
+}
+
+function openPopup() {
+  menuCover.classList.add('cover_active-popup');
+
 }
 
 // add default slider to main page

@@ -13,7 +13,25 @@
   <link as="font" href="../../fonts/Arial-ItalicMT.woff2" rel="preload">
 </head>
 <body>
-<div class="menu-cover"></div>
+<div class="popup">
+  <div class="popup__body">
+    <img class="popup__img" src="../../images/pets-jennifer.png">
+    <div class="popup__text-block">
+      <h3 class="popup__header">Jennifer</h3>
+      <p class="popup__subheader h4">Dog - Labrador</p>
+      <p class="popup__text h5">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever
+        home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in
+        the house if she has all of her favorite toys.</p>
+      <ul class="popup__list">
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Age:</strong> 2 months</span></li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Inoculations:</strong> none</span></li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Diseases:</strong> none</span></li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Parasites:</strong> none</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="cover"></div>
 <div class="wrapper">
   <header class="header header__main container">
     <div class="logo">
@@ -25,7 +43,7 @@
       <ul class="menu paragraph-l">
         <li class="menu__item menu__item_active"><a class="link menu__link" href="#">About the
           shelter</a></li>
-        <li class="menu__item"><a class="link menu__link" href="#">Our pets</a></li>
+        <li class="menu__item"><a class="link menu__link" href="../../pages/pets/index.html">Our pets</a></li>
         <li class="menu__item"><a class="link menu__link" href="#help">Help the shelter</a></li>
         <li class="menu__item"><a class="link menu__link" href="#footer">Contacts</a></li>
       </ul>
@@ -43,7 +61,9 @@
         <h2 class="hero-title">Not only people need a house</h2>
         <p class="hero-text paragraph-l">We offer to give a chance to a little and nice puppy with an extremely wide
           and open heart. He or she will love you more than anybody else in the world, you will see!</p>
-        <button class="button hero-button" type="button">Make a friend</button>
+        <button class="button hero-button" type="button" onClick='location.href="../../pages/pets/index.html"'>Make a
+          friend
+        </button>
       </div>
       <img alt="Dog image" class="hero-image" src="../../images/start-screen-puppy.png">
     </section>
@@ -79,7 +99,9 @@
         </div>
       </div>
       <!-- ----------------SLIDER END --------------- -->
-      <button class="button friends-button" type="button">Get to know the rest</button>
+      <button class="button friends-button" type="button" onClick='location.href="../../pages/pets/index.html"'>Get to
+        know the rest
+      </button>
     </section>
 
     <section class="help container" id="help">

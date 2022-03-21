@@ -348,7 +348,7 @@ template {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local("Georgia"), local("Georgia-Bold"), url("../../fonts/Georgia-Bold.woff2") format("woff2");
+  src: local("Georgia-Bold"), url("../../fonts/Georgia-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Georgia";
@@ -464,6 +464,27 @@ html {
 
 .link {
   text-decoration: none;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.cover_active {
+  z-index: 2;
+  background: rgba(41, 41, 41, 0.6);
+}
+
+.cover_active-popup {
+  z-index: 100;
+  background: rgba(41, 41, 41, 0.6);
 }
 
 .button {
@@ -697,6 +718,80 @@ html {
   text-align: center;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(41, 41, 41, 0.6);
+  transition: 0.3s;
+}
+
+.popup__body {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 900px;
+  height: 500px;
+  border-radius: 9px;
+  background: #FAFAFA;
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.popup__img {
+  width: 500px;
+  height: 500px;
+}
+
+.popup__text-block {
+  width: 351px;
+  height: 362px;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+.popup__header {
+  margin: 0;
+  color: #000000;
+}
+
+.popup__subheader {
+  margin: 0;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.popup__text {
+  margin: 0;
+  margin-top: 40px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.popup__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-top: 40px;
+  padding-left: 15px;
+  gap: 10px;
+}
+
+.popup__list-element {
+  line-height: 17px;
+  color: #F1CDB3;
+}
+
+.popup__list-text {
+  color: #000000;
+}
+
 .logo__title {
   margin: 0;
   margin-bottom: 10px;
@@ -721,10 +816,10 @@ html {
     position: fixed;
     top: 0;
     right: -320px;
-    height: 100vh;
-    width: 320px;
-    background: #292929;
     justify-content: center;
+    width: 320px;
+    height: 100vh;
+    background: #292929;
   }
 }
 
@@ -735,15 +830,15 @@ html {
 .menu {
   display: flex;
   flex-wrap: nowrap;
-  gap: 35px;
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: 35px;
 }
 @media (max-width: 767px) {
   .menu {
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
   }
 }
 
@@ -772,22 +867,6 @@ html {
   .menu__link {
     font-size: 32px;
   }
-}
-
-.menu-cover {
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: transparent;
-  transition: 0.3s;
-}
-
-.menu-cover_active {
-  z-index: 2;
-  background: rgba(41, 41, 41, 0.6);
 }
 
 .burger {
