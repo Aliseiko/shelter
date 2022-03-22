@@ -1,6 +1,7 @@
 const burgerButton = document.querySelector('.burger'),
     menuCover = document.querySelector('.cover'),
     nav = document.querySelector('.nav'),
+    popup = document.querySelector('.popup'),
     defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody'],
     petsNames = [];
 let pets,
@@ -96,9 +97,45 @@ function sliderSlide(direction) {
   currentSliderPetsNames = nextSlidePetsNames;
 }
 
-function openPopup() {
-  menuCover.classList.add('cover_active-popup');
+function createPopup(pet) {
+  let popup = `<div class="popup__body">
+    <button class="popup__button popup__button_close popup__button_position" type="button"></button>
+    <div class="popup__img-wrapper">
+      <img class="popup__img" src="${pet.img}">
+    </div>
+    <div class="popup__text-block">
+      <h3 class="popup__header">${pet.name}</h3>
+      <p class="popup__subheader h4">${pet.type} - ${pet.breed}</p>
+      <p class="popup__text h5">${pet.description}</p>
+      <ul class="popup__list">
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Age:</strong> ${pet.age}</span></li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Inoculations:</strong> ${pet.inoculations}</span>
+        </li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Diseases:</strong> ${pet.diseases}</span></li>
+        <li class="h5 popup__list-element"><span class="popup__list-text"><strong>Parasites:</strong> ${pet.parasites}</span></li>
+      </ul>
+    </div>
+  </div>`;
+  
+  return popup;
+}
 
+function openPopup() {
+  let petName = event.target.closest('.slider-card').querySelector('.slider-card__card-header').textContent;
+  let pet = pets.find(el => el.name === petName);
+
+  console.log(pet);
+
+  popup.innerHTML = createPopup(pet);
+  popup.classList.add('popup_active');
+}
+
+function closePopup() {
+  if (event.target === popup ||
+      event.target === document.querySelector('.popup__button')) {
+    popup.classList.remove('popup_active');
+    popup.innerHTML = '';
+  }
 }
 
 // add default slider to main page
