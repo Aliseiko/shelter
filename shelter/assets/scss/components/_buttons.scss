@@ -26,7 +26,8 @@
   }
 }
 
-.slider__button {
+.slider__button,
+.popup__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,5 +63,13 @@
     content: url(../../icons/Arrow-right.svg);
     line-height: 1px;
     height: 6px;
+  }
+}
+
+.popup__button_close {
+  &:after {
+    content: url(../../icons/icon-close.svg);
+    line-height: 1px;
+    height: 12px;
   }
 }

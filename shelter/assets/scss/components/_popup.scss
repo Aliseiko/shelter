@@ -13,8 +13,8 @@
 }
 
 .popup__body {
+  position: relative;
   display: flex;
-  overflow: hidden;
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 900px;
@@ -22,11 +22,34 @@
   border-radius: 9px;
   background: #FAFAFA;
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+  @media (max-width: 1279px) {
+    width: 630px;
+    height: 350px;
+  }
+  @media (max-width: 767px) {
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    height: 341px;
+  }
+}
+
+.popup__img-wrapper {
+  overflow: hidden;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .popup__img {
   width: 500px;
   height: 500px;
+  @media (max-width: 1279px) {
+    width: 350px;
+    height: 350px;
+  }
 }
 
 .popup__text-block {
@@ -34,17 +57,34 @@
   height: 362px;
   margin-top: 50px;
   margin-right: 20px;
+  @media (max-width: 1279px) {
+    width: 260px;
+    height: 303px;
+    margin-top: 10px;
+    margin-right: 9px;
+  }
+  @media (max-width: 767px) {
+    width: 220px;
+    height: 321px;
+    margin: 0;
+  }
 }
 
 .popup__header {
   margin: 0;
   color: #000000;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .popup__subheader {
   margin: 0;
   margin-top: 10px;
   color: #000000;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .popup__text {
@@ -52,6 +92,14 @@
   margin-top: 40px;
   line-height: 17px;
   color: #000000;
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 110%;
+  }
+  @media (max-width: 767px) {
+    text-align: justify;
+  }
 }
 
 .popup__list {
@@ -61,6 +109,15 @@
   margin-top: 40px;
   padding-left: 15px;
   gap: 10px;
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    padding-left: 14px;
+    gap: 5px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 24px;
+    padding-left: 15px;
+  }
 }
 
 .popup__list-element {
@@ -70,4 +127,16 @@
 
 .popup__list-text {
   color: #000000;
+}
+
+.popup__button_position {
+  position: absolute;
+  top: -52px;
+  right: -42px;
+  @media (max-width: 1279px) {
+    right: -43px;
+  }
+  @media (max-width: 767px) {
+    right: -30px;
+  }
 }
