@@ -1474,9 +1474,9 @@ html {
 
 .card-number {
   margin: 0;
-}
-.card-number:hover {
-  text-decoration: underline;
+  /*&:hover {
+    text-decoration: underline;
+  }*/
 }
 @media (max-width: 560px) {
   .card-number {
