@@ -33,12 +33,20 @@
 .menu__item {
   border-bottom: solid 3px transparent;
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     border-bottom: solid 3px $color-primory;
 
     .menu__link {
       color: $color-light-s;
+    }
+
+    .menu__link_pets {
+      color: $color-dark-button;
+      @media (max-width: 767px) {
+        color: $color-light-s;
+      }
     }
   }
 }
@@ -49,12 +57,27 @@
   .menu__link {
     color: $color-light-s;
   }
+
+  .menu__link_pets {
+    color: $color-dark-button;
+    @media (max-width: 767px) {
+      color: $color-light-s;
+    }
+  }
 }
 
 
 .menu__link {
   color: $color-dark-s;
+  transition: 0.3s;
   @media (max-width: 767px) {
     font-size: 32px;
+  }
+}
+
+.menu__link_pets {
+  color: $header-2-5-color;
+  @media (max-width: 767px) {
+    color: $color-dark-s;
   }
 }
