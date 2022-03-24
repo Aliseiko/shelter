@@ -4,12 +4,14 @@
   background: url(../../images/noise_transparent@2x.png),
   radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
   #211F20;
-  @media (max-width: 1020px) {
+  @media (max-width: 1279px) {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 65px 60px;
+    gap: 5px 60px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
+    align-items: center;
+    flex-direction: column;
     text-align: center;
     gap: 40px;
   }
@@ -18,10 +20,12 @@
 .footer__questions {
   max-width: 279px;
   margin-top: 56px;
-  @media (max-width: 1020px) {
+  margin-bottom: 60px;
+  @media (max-width: 1279px) {
     margin-top: 30px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
+    margin-bottom: 0;
     text-align: center;
   }
 }
@@ -30,146 +34,111 @@
 .footer__visit-title {
   margin: 0;
   color: #fff;
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
     font-size: 25px;
     text-align: center;
   }
 }
 
 .footer__visit-title {
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
     display: inline-block;
     max-width: 270px;
   }
 }
 
-.footer__contacts-1 {
-  margin: 0 0 60px 0;
-  padding: 0;
-  list-style: none;
-  @media (max-width: 1020px) {
-    margin: 0;
-  }
-
-  li {
-    position: relative;
-    display: inline-block;
-    margin-top: 40px;
-    padding-left: 60px;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40px;
-      height: 32px;
-      background-size: cover;
-    }
-  }
-}
-
-.footer__email {
-  &:before {
-    background-image: url("../../icons/icon-email.svg");
-  }
-
-  @media (max-width: 420px) {
-    margin-top: 39px !important;
-  }
-}
-
-.footer__phone {
-  &:before {
-    background-image: url("../../icons/icon-phone.svg");
-  }
-}
-
 .footer__link {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   line-height: 32px;
   text-decoration: none;
   color: $color-primory;
+  transition: 0.3s;
+  gap: 20px;
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
 
   &:hover {
     text-decoration: underline;
   }
 }
 
+.footer__link-email,
+.footer__link-phone {
+  margin-top: 40px;
+}
+
+.footer__link-icon {
+  width: 40px;
+  height: 32px;
+}
+
+.email-icon {
+  background-image: url("../../icons/icon-email.svg");
+  background-size: cover;
+}
+
+.phone-icon {
+  background-image: url("../../icons/icon-phone.svg");
+  background-size: cover;
+}
+
 .footer__visit {
   max-width: 302px;
   margin-top: 56px;
-  @media (max-width: 1020px) {
+  @media (max-width: 1279px) {
     margin-top: 30px;
   }
-  @media (max-width: 420px) {
-    margin: 0;
+  @media (max-width: 767px) {
+    margin-top: 0;
     text-align: center;
   }
 }
 
-.footer__address-1,
-.footer__address-2 {
-  color: $color-primory;
-
-  &:before {
-    background-image: url("../../icons/icon-marker.svg");
-  }
-}
-
-.footer__address-1 {
-  margin-top: 34px;
-  @media (max-width: 420px) {
-    margin-top: 39px;
-  }
-}
-
-.footer__address-2 {
-  margin-top: 32px;
-  line-height: 32px;
-  @media (max-width: 420px) {
-    margin-top: 40px;
-  }
-}
-
 .address-1-link {
+  margin-top: 34px;
   line-height: 115%;
-}
-
-.footer__contacts-2 {
-  margin: 0 0 60px 0;
-  padding: 0;
-  list-style: none;
-  @media (max-width: 1020px) {
-    margin: 0;
+  @media (max-width: 1279px) {
+    margin-top: 33px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
+    justify-content: left;
+    margin-top: 38px;
     text-align: left;
   }
+}
 
-  li {
-    position: relative;
-    display: inline-block;
-    padding-left: 42px;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 22px;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
+.address-2-link {
+  margin-top: 32px;
+  @media (max-width: 1279px) {
+    margin-top: 33px;
   }
+  @media (max-width: 767px) {
+    justify-content: left;
+    margin-top: 39px;
+    text-align: left;
+  }
+}
+
+.footer__link-icon-visit {
+  width: 22px;
+  min-width: 22px;
+  height: 32px;
+}
+
+.marker-icon {
+  background-image: url("../../icons/icon-marker.svg");
+  background-size: cover;
 }
 
 .footer__img {
   align-self: flex-end;
   width: 300px;
   height: 310px;
-  @media (max-width: 420px) {
+  @media (max-width: 767px) {
+    align-self: auto;
     width: 260px;
     height: 269px;
   }
