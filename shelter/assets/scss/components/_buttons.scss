@@ -61,15 +61,30 @@
 .slider__button_right {
   &:after {
     content: url(../../icons/Arrow-right.svg);
-    line-height: 1px;
     height: 6px;
+    line-height: 1px;
   }
 }
 
 .popup__button_close {
   &:after {
     content: url(../../icons/icon-close.svg);
-    line-height: 1px;
     height: 12px;
+    line-height: 1px;
+  }
+}
+
+.slider__button_page-number {
+  background: $color-primory;
+  cursor: auto;
+}
+
+.button-inactive {
+  color: $color-dark-s;
+  border-color: $color-dark-s;
+  cursor: auto;
+
+  &:hover {
+    background: transparent;
   }
 }

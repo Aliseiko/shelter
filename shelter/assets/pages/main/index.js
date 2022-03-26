@@ -123,9 +123,6 @@ function createPopup(pet) {
 function openPopup() {
   let petName = event.target.closest('.slider-card').querySelector('.slider-card__card-header').textContent;
   let pet = pets.find(el => el.name === petName);
-
-  console.log(pet);
-
   popup.innerHTML = createPopup(pet);
   popup.classList.add('popup_active');
 }
