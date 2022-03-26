@@ -2,7 +2,7 @@ const burgerButton = document.querySelector('.burger'),
     menuCover = document.querySelector('.cover'),
     nav = document.querySelector('.nav'),
     popup = document.querySelector('.popup'),
-    defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
+    defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie', 'Katrine', 'Jennifer'],
     petsNames = [];
 let pets,
     currentSliderPetsNames = defaultMainSliderPetsNames;
