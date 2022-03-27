@@ -13,8 +13,7 @@ const burgerButton = document.querySelector('.burger'),
 let pets,
     currentSliderPageNumber = 1,
     maxPageNumber,
-    screenSize,
-    currentSliderPetsNames = defaultMainSliderPetsNames;
+    screenSize;
 
 // --------------- open / close menu ------------------
 function openCloseMenu() {
@@ -45,9 +44,12 @@ async function getPets() {
 }
 
 function generateRandomPetsNames() {
-  let names = [...defaultMainSliderPetsNames];
+  let names = [...defaultMainSliderPetsNames],
+      names1 = names.slice(0, Math.floor(names.length / 2)),
+      names2 = names.slice(Math.floor(names.length / 2), names.length);
+
   for (let i = 1; i <= 5; i++) {
-    names = names.concat([...petsNames].sort(() => Math.random() - 0.5));
+    names = names.concat([...names1].sort(() => Math.random() - 0.5), [...names2].sort(() => Math.random() - 0.5));
   }
   generatedPetsNames.push(...names);
   return names;
@@ -69,19 +71,6 @@ function createCard(petName) {
   return card;
 }
 
-/*function createSlide(petsNamesArr) {
-  let slide = document.createElement('ul'),
-      slideHTML = '';
-  slide.className = 'slider__slide';
-  petsNamesArr.forEach(el => slideHTML += createCard(el));
-  slide.innerHTML = slideHTML;
-  let cards = slide.children;
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].classList.add(`slider-card-${i + 1}`);
-  }
-  return slide;
-}*/
-
 function createSlide(petsNamesArr) {
   let slide = document.querySelector('.slider__body'),
       slideHTML = '';
@@ -93,16 +82,6 @@ function createSlide(petsNamesArr) {
   }
   return slide;
 }
-
-/*function createNextSlidePetsNames() {
-  const namesArr = [];
-
-  while (namesArr.length < 3) {
-    let name = petsNames[Math.floor(Math.random() * petsNames.length)];
-    if (!currentSliderPetsNames.includes(name) && !namesArr.includes(name)) namesArr.push(name);
-  }
-  return namesArr
-}*/
 
 function showSliderPage(pageNumber) {
   let pageNumberForTranslate = pageNumber - 1;
