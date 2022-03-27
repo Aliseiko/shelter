@@ -2,9 +2,18 @@ const burgerButton = document.querySelector('.burger'),
     menuCover = document.querySelector('.cover'),
     nav = document.querySelector('.nav'),
     popup = document.querySelector('.popup'),
-    defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie', 'Katrine', 'Jennifer'],
-    petsNames = [];
+    defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
+    petsNames = [],
+    generatedPetsNames = [],
+    firstButton = document.querySelector('.slider__button_page-first'),
+    leftButton = document.querySelector('.slider__button_page-left'),
+    rightButton = document.querySelector('.slider__button_page-right'),
+    lastButton = document.querySelector('.slider__button_page-last');
+
 let pets,
+    currentSliderPageNumber = 1,
+    maxPageNumber,
+    screenSize,
     currentSliderPetsNames = defaultMainSliderPetsNames;
 
 // --------------- open / close menu ------------------
@@ -29,10 +38,19 @@ nav.addEventListener('click', event => {
   }
 })
 
-// --------------- main slider ------------------
+// --------------- pets slider ------------------
 async function getPets() {
   let response = await fetch('../../pets.json');
   return await response.json();
+}
+
+function generateRandomPetsNames() {
+  let names = [...defaultMainSliderPetsNames];
+  for (let i = 1; i <= 5; i++) {
+    names = names.concat([...petsNames].sort(() => Math.random() - 0.5));
+  }
+  generatedPetsNames.push(...names);
+  return names;
 }
 
 function createCard(petName) {
@@ -48,7 +66,6 @@ function createCard(petName) {
                 </div>
               </div>
 `
-
   return card;
 }
 
@@ -77,7 +94,7 @@ function createSlide(petsNamesArr) {
   return slide;
 }
 
-function createNextSlidePetsNames() {
+/*function createNextSlidePetsNames() {
   const namesArr = [];
 
   while (namesArr.length < 3) {
@@ -85,35 +102,67 @@ function createNextSlidePetsNames() {
     if (!currentSliderPetsNames.includes(name) && !namesArr.includes(name)) namesArr.push(name);
   }
   return namesArr
+}*/
+
+function showSliderPage(pageNumber) {
+  let pageNumberForTranslate = pageNumber - 1;
+  document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * 40px))`;
+  document.querySelector('.slider__button_page-number').textContent = pageNumber;
+  if (pageNumber === 1) {
+    firstButton.classList.add('button-inactive');
+    leftButton.classList.add('button-inactive');
+    rightButton.classList.remove('button-inactive');
+    lastButton.classList.remove('button-inactive');
+  } else if (pageNumber === maxPageNumber) {
+    firstButton.classList.remove('button-inactive');
+    leftButton.classList.remove('button-inactive');
+    rightButton.classList.add('button-inactive');
+    lastButton.classList.add('button-inactive');
+  } else {
+    firstButton.classList.remove('button-inactive');
+    leftButton.classList.remove('button-inactive');
+    rightButton.classList.remove('button-inactive');
+    lastButton.classList.remove('button-inactive');
+  }
+
+  currentSliderPageNumber = pageNumber;
 }
 
-function sliderSlide(direction) {
-  let nextSlidePetsNames = createNextSlidePetsNames(),
-      slider = document.querySelector('.slider__body'),
-      slide = createSlide(nextSlidePetsNames);
-  if (direction === 'left') {
-    slider.classList.add('slider__body_left');
-    slider.prepend(slide);
-    setTimeout(() => {
-      slider.children[1].remove();
-      slider.classList.remove('slider__body_left');
-    }, 600);
-  } else if (direction === 'right') {
-    slider.classList.add('slider__body_right');
-    slider.append(slide);
-    setTimeout(() => {
-      slider.children[0].remove();
-      slider.classList.remove('slider__body_right');
-    }, 600);
+function setMaxPageNumberAndScreenSize() {
+  let width = document.documentElement.scrollWidth;
+  if (width >= 1280) {
+    maxPageNumber = Math.ceil(generatedPetsNames.length / 8);
+    screenSize = 'large';
+  } else if (width < 1280 && width >= 768) {
+    maxPageNumber = Math.ceil(generatedPetsNames.length / 6);
+    screenSize = 'medium';
+  } else {
+    maxPageNumber = Math.ceil(generatedPetsNames.length / 3);
+    screenSize = 'small';
   }
-  currentSliderPetsNames = nextSlidePetsNames;
+}
+
+function sliderSlide(direction = 'right') {
+  if (direction === 'right') {
+    currentSliderPageNumber++;
+    if (currentSliderPageNumber > maxPageNumber) currentSliderPageNumber = maxPageNumber;
+  } else if (direction === 'left') {
+    currentSliderPageNumber--;
+    if (currentSliderPageNumber < 1) currentSliderPageNumber = 1;
+  } else if (direction === 'first') {
+    currentSliderPageNumber = 1;
+  } else if (direction === 'last') {
+    currentSliderPageNumber = maxPageNumber;
+  }
+
+  showSliderPage(currentSliderPageNumber);
 }
 
 function createPopup(pet) {
   let popup = `<div class="popup__body">
     <button class="popup__button popup__button_close popup__button_position" type="button"></button>
     <div class="popup__img-wrapper">
-      <img class="popup__img" src="${pet.img}">
+      <img class="popup__img" src="${pet.img}" alt="${pet.name} image">
     </div>
     <div class="popup__text-block">
       <h3 class="popup__header">${pet.name}</h3>
@@ -151,14 +200,33 @@ function closePopup() {
 (async () => {
   pets = await getPets();
   pets.forEach(el => petsNames.push(el.name));
-  createSlide(defaultMainSliderPetsNames);
+  generateRandomPetsNames();
+  createSlide(generatedPetsNames);
+  setMaxPageNumberAndScreenSize();
 })();
 
-/*
-document.querySelector('.slider__button_left').addEventListener('click', () => {
+leftButton.addEventListener('click', () => {
   sliderSlide('left');
 })
 
-document.querySelector('.slider__button_right').addEventListener('click', () => {
+rightButton.addEventListener('click', () => {
   sliderSlide('right');
-})*/
+})
+
+firstButton.addEventListener('click', () => {
+  sliderSlide('first');
+})
+
+lastButton.addEventListener('click', () => {
+  sliderSlide('last');
+})
+
+window.addEventListener('resize', () => {
+  let width = document.documentElement.scrollWidth;
+  if ((width >= 1280 && screenSize !== 'large') ||
+      (width < 1280 && width >= 768 && screenSize !== 'medium') ||
+      (width < 768 && screenSize !== 'small')) {
+    setMaxPageNumberAndScreenSize();
+    showSliderPage(1);
+  }
+});

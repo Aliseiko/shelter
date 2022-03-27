@@ -101,7 +101,7 @@ function createPopup(pet) {
   let popup = `<div class="popup__body">
     <button class="popup__button popup__button_close popup__button_position" type="button"></button>
     <div class="popup__img-wrapper">
-      <img class="popup__img" src="${pet.img}">
+      <img class="popup__img" src="${pet.img}" alt="${pet.name} image">
     </div>
     <div class="popup__text-block">
       <h3 class="popup__header">${pet.name}</h3>
