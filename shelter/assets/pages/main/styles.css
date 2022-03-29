@@ -478,7 +478,7 @@ html {
 }
 
 .cover_active {
-  z-index: 2;
+  z-index: 4;
   background: rgba(41, 41, 41, 0.6);
 }
 
@@ -921,7 +921,7 @@ html {
 
 .logo {
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .logo__title {
@@ -953,6 +953,7 @@ html {
 }
 
 .nav {
+  z-index: 1;
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
@@ -971,7 +972,7 @@ html {
 
 .nav_active {
   right: 0;
-  z-index: 3;
+  z-index: 5;
 }
 
 .menu {
@@ -1085,7 +1086,6 @@ html {
 
 .header {
   position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -1533,9 +1533,6 @@ html {
 
 .card-number {
   margin: 0;
-  /*&:hover {
-    text-decoration: underline;
-  }*/
 }
 @media (max-width: 560px) {
   .card-number {
