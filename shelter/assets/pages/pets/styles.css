@@ -608,7 +608,6 @@ html {
 
 .slider__body {
   position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -1058,9 +1057,6 @@ html {
   border-bottom: solid 3px transparent;
   transition: 0.3s;
   cursor: pointer;
-}
-.menu__item:hover {
-  border-bottom: solid 3px #F1CDB3;
 }
 .menu__item:hover .menu__link {
   color: #FAFAFA;

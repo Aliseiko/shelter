@@ -1024,9 +1024,6 @@ html {
   transition: 0.3s;
   cursor: pointer;
 }
-.menu__item:hover {
-  border-bottom: solid 3px #F1CDB3;
-}
 .menu__item:hover .menu__link {
   color: #FAFAFA;
 }
