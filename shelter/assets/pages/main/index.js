@@ -2,6 +2,7 @@ const burgerButton = document.querySelector('.burger'),
     menuCover = document.querySelector('.cover'),
     nav = document.querySelector('.nav'),
     popup = document.querySelector('.popup'),
+    logo = document.querySelector('.logo'),
     defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody'],
     petsNames = [];
 let pets,
@@ -12,6 +13,7 @@ function openCloseMenu() {
   menuCover.classList.toggle('cover_active');
   burgerButton.classList.toggle('burger_active');
   nav.classList.toggle('nav_active');
+  logo.classList.toggle('logo_mobile-menu-active');
 }
 
 function closeMenu() {
@@ -19,6 +21,7 @@ function closeMenu() {
   menuCover.classList.remove('cover_active-popup');
   burgerButton.classList.remove('burger_active');
   nav.classList.remove('nav_active');
+  logo.classList.remove('logo_mobile-menu-active');
 }
 
 burgerButton.addEventListener('click', openCloseMenu);

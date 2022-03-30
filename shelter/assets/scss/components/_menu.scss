@@ -29,9 +29,9 @@
   @media (max-width: 767px) {
     align-items: center;
     flex-direction: column;
-    gap: 37px;
-    font-size: 32px;
     margin-bottom: -5px;
+    font-size: 32px;
+    gap: 37px;
   }
 }
 
@@ -57,8 +57,8 @@
 }
 
 .menu__item_active {
-  border-bottom: solid 3px $color-primory;
   margin-bottom: 3px;
+  border-bottom: solid 3px $color-primory;
 
   .menu__link {
     color: $color-light-s;

@@ -1,6 +1,12 @@
 .logo {
   position: relative;
   z-index: 1;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.logo_mobile-menu-active {
+  opacity: 0;
 }
 
 .logo__title {
