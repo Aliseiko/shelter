@@ -583,7 +583,6 @@ html {
 .slider__buttons {
   position: absolute;
   top: calc(50% - 66px);
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -676,6 +675,9 @@ html {
   }
 }
 
+.slider__button_left {
+  z-index: 2;
+}
 @media (max-width: 513px) {
   .slider__button_left {
     justify-content: center;
@@ -683,6 +685,9 @@ html {
   }
 }
 
+.slider__button_right {
+  z-index: 2;
+}
 @media (max-width: 513px) {
   .slider__button_right {
     justify-content: center;
