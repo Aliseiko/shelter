@@ -343,8 +343,13 @@
   margin-top: 20px;
   padding: 10px 15px;
   border-radius: 9px;
-  background: #F1CDB3;
+  background: $color-primory;
+  transition: 0.3s;
   gap: 15px;
+
+  &:hover {
+    background: $color-primory-light;
+  }
 }
 
 .credit-card-img {

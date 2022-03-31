@@ -1549,7 +1549,11 @@ html {
   padding: 10px 15px;
   border-radius: 9px;
   background: #F1CDB3;
+  transition: 0.3s;
   gap: 15px;
+}
+.donation__credit-card:hover {
+  background: #FDDCC4;
 }
 
 .credit-card-img {
