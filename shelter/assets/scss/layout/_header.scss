@@ -3,17 +3,17 @@
 @import "../components/burger";
 
 .header {
-  position: relative;
+  //position: relative;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
   @media (max-width: 767px) {
-    margin-right: 23px;
+    padding-right: 53px;
   }
-  @media (max-width: 360px) {
-    margin-right: 43px;
-  }
+  /*@media (max-width: 360px) {
+    padding-right: 53px;
+  }*/
 }
 
 .header__main {
@@ -25,6 +25,10 @@
 }
 
 .header__pets {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /*position: sticky;
+  top: 0;*/
+  //z-index: 2;
 }
