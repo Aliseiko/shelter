@@ -41,6 +41,7 @@
   cursor: pointer;
 
   &:hover {
+    //uncomment to underline on hover
     //border-bottom: solid 3px $color-primory;
 
     .menu__link {
@@ -72,7 +73,6 @@
   }
 }
 
-
 .menu__link {
   color: $color-dark-s;
   transition: 0.3s;
@@ -86,4 +86,22 @@
   @media (max-width: 767px) {
     color: $color-dark-s;
   }
+}
+
+.nav__cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: none;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.nav__cover_active {
+  z-index: 4;
+  display: block;
+  background: rgba(41, 41, 41, 0.6);
 }

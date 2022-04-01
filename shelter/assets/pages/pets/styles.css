@@ -466,27 +466,6 @@ html {
   text-decoration: none;
 }
 
-.cover {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background: transparent;
-  transition: 0.3s;
-}
-
-.cover_active {
-  z-index: 4;
-  background: rgba(41, 41, 41, 0.6);
-}
-
-.cover_active-popup {
-  z-index: 100;
-  background: rgba(41, 41, 41, 0.6);
-}
-
 .button {
   padding: 15px 45px;
   font-family: Georgia, serif;
@@ -1105,6 +1084,24 @@ html {
   }
 }
 
+.nav__cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: none;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.nav__cover_active {
+  z-index: 4;
+  display: block;
+  background: rgba(41, 41, 41, 0.6);
+}
+
 .burger {
   display: none;
   width: 30px;
@@ -1146,13 +1143,12 @@ html {
 }
 
 .header {
+  position: relative;
+  z-index: 5;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
-  /*@media (max-width: 360px) {
-    padding-right: 53px;
-  }*/
 }
 @media (max-width: 767px) {
   .header {
@@ -1171,11 +1167,11 @@ html {
 }
 
 .header__pets {
-  background: #ffffff;
+  position: sticky;
+  top: 0;
   padding-top: 30px;
   padding-bottom: 30px;
-  /*position: sticky;
-  top: 0;*/
+  background: #ffffff;
 }
 
 .friends {

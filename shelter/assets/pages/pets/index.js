@@ -1,5 +1,5 @@
 const burgerButton = document.querySelector('.burger'),
-    menuCover = document.querySelector('.cover'),
+    menuCover = document.querySelector('.nav__cover'),
     nav = document.querySelector('.nav'),
     logo = document.querySelector('.logo'),
     popup = document.querySelector('.popup'),
@@ -18,15 +18,14 @@ let pets,
 
 // --------------- open / close menu ------------------
 function openCloseMenu() {
-  menuCover.classList.toggle('cover_active');
+  menuCover.classList.toggle('nav__cover_active');
   burgerButton.classList.toggle('burger_active');
   nav.classList.toggle('nav_active');
   logo.classList.toggle('logo_mobile-menu-active');
 }
 
 function closeMenu() {
-  menuCover.classList.remove('cover_active');
-  menuCover.classList.remove('cover_active-popup');
+  menuCover.classList.remove('nav__cover_active');
   burgerButton.classList.remove('burger_active');
   nav.classList.remove('nav_active');
   logo.classList.remove('logo_mobile-menu-active');

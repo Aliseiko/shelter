@@ -3,7 +3,8 @@
 @import "../components/burger";
 
 .header {
-  //position: relative;
+  position: relative;
+  z-index: 5;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -11,9 +12,6 @@
   @media (max-width: 767px) {
     padding-right: 53px;
   }
-  /*@media (max-width: 360px) {
-    padding-right: 53px;
-  }*/
 }
 
 .header__main {
@@ -25,10 +23,9 @@
 }
 
 .header__pets {
-  background: #ffffff;
+  position: sticky;
+  top: 0;
   padding-top: 30px;
   padding-bottom: 30px;
-  /*position: sticky;
-  top: 0;*/
-  //z-index: 2;
+  background: #ffffff;
 }
