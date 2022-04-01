@@ -71,11 +71,12 @@
   min-width: 270px;
   height: 435px;
   border-radius: 9px;
-  background: #FAFAFA;
+  background: $color-light-s;
   transition: 0.3s;
   cursor: pointer;
 
   &:hover {
+    background: #FFFFFF;
     box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
 
     .slider-card__bottom .button_white {

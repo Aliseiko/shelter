@@ -639,6 +639,7 @@ html {
   cursor: pointer;
 }
 .slider-card:hover {
+  background: #FFFFFF;
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 .slider-card:hover .slider-card__bottom .button_white {
