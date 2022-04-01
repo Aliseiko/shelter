@@ -687,6 +687,10 @@ html {
 .slider-card:hover {
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
+.slider-card:hover .slider-card__bottom .button_white {
+  border-color: #FDDCC4;
+  background: #FDDCC4;
+}
 @media (max-width: 354px) {
   .slider-card:hover {
     box-shadow: 0 2px 23px 9px rgba(13, 13, 13, 0.04);

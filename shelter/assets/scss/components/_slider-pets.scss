@@ -77,6 +77,11 @@
 
   &:hover {
     box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+
+    .slider-card__bottom .button_white {
+      border-color: $color-primory-light;
+      background: $color-primory-light;
+    }
     @media (max-width: 1279px) {
       box-shadow: 0 2px 23px 9px rgba(13, 13, 13, 0.04);
     }
