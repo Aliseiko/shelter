@@ -177,6 +177,30 @@ function closePopup() {
   }
 }
 
+function activatePopupCloseButton() {
+  const popupCloseButton = document.querySelector('.popup__button_close');
+  if (event.target === popup ||
+      event.target === popupCloseButton) {
+    popupCloseButton.style.background = '#F1CDB3';
+  } else {
+    popupCloseButton.style.background = 'transparent';
+  }
+
+  //console.log(event.target)
+}
+
+/*function deactivatePopupCloseButton() {
+  const popupCloseButton = document.querySelector('.popup__button_close');
+  if (event.target === popup ||
+      event.target === popupCloseButton) {
+    popupCloseButton.style.background = '#F1CDB3';
+  }
+
+
+  const popupCloseButton = document.querySelector('.popup__button_close');
+  popupCloseButton.style.background = 'transparent';
+}*/
+
 // add default slider to main page
 (async () => {
   pets = await getPets();
@@ -211,3 +235,6 @@ window.addEventListener('resize', () => {
     showSliderPage(1);
   }
 });
+
+popup.addEventListener('mouseover', activatePopupCloseButton);
+//popup.addEventListener('mouseout', deactivatePopupCloseButton);

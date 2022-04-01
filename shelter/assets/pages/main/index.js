@@ -137,6 +137,18 @@ function closePopup() {
   }
 }
 
+function activatePopupCloseButton() {
+  const popupCloseButton = document.querySelector('.popup__button_close');
+  if (event.target === popup ||
+      event.target === popupCloseButton) {
+    popupCloseButton.style.background = '#F1CDB3';
+  } else {
+    popupCloseButton.style.background = 'transparent';
+  }
+
+  //console.log(event.target)
+}
+
 // add default slider to main page
 (async () => {
   pets = await getPets();
@@ -151,3 +163,6 @@ document.querySelector('.slider__button_left').addEventListener('click', () => {
 document.querySelector('.slider__button_right').addEventListener('click', () => {
   sliderSlide('right');
 })
+
+popup.addEventListener('mouseover', activatePopupCloseButton);
+//popup.addEventListener('mouseout', deactivatePopupCloseButton);
