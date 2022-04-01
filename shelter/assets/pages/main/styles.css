@@ -371,7 +371,8 @@ template {
   font-display: swap;
   src: local("Arial-Italic"), url("../../fonts/Arial-ItalicMT.woff2") format("woff2");
 }
-h1 {
+h1,
+.h1 {
   font-family: Georgia, serif;
   font-size: 32px;
   font-weight: 400;
@@ -748,6 +749,11 @@ html {
 .popup_active {
   z-index: 100;
   opacity: 1;
+  /*&:hover {
+    .popup__body .popup__button {
+      background: $color-primory;
+    }
+  }*/
 }
 
 .popup__body {
