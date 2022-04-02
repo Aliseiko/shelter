@@ -749,11 +749,6 @@ html {
 .popup_active {
   z-index: 100;
   opacity: 1;
-  /*&:hover {
-    .popup__body .popup__button {
-      background: $color-primory;
-    }
-  }*/
 }
 
 .popup__body {
@@ -814,7 +809,7 @@ html {
 }
 @media (max-width: 1279px) {
   .popup__text-block {
-    width: 260px;
+    width: 261px;
     margin: 10px 9px 10px 0;
   }
 }
@@ -873,18 +868,18 @@ html {
   margin: 0;
   margin-top: 40px;
   padding-left: 15px;
-  gap: 10px;
+  gap: 11px;
 }
 @media (max-width: 1279px) {
   .popup__list {
-    margin-top: 20px;
+    margin-top: 17px;
     padding-left: 14px;
-    gap: 5px;
+    gap: 6px;
   }
 }
 @media (max-width: 767px) {
   .popup__list {
-    margin-top: 24px;
+    margin-top: 21px;
     padding-left: 15px;
   }
 }
