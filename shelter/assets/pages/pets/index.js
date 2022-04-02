@@ -167,11 +167,13 @@ function openPopup() {
   let pet = pets.find(el => el.name === petName);
   popup.innerHTML = createPopup(pet);
   popup.classList.add('popup_active');
+  popup.addEventListener('mouseover', activatePopupCloseButton);
 }
 
 function closePopup() {
   if (event.target === popup ||
       event.target === document.querySelector('.popup__button')) {
+    popup.removeEventListener('mouseover', activatePopupCloseButton);
     popup.classList.remove('popup_active');
     popup.innerHTML = '';
   }
@@ -185,21 +187,7 @@ function activatePopupCloseButton() {
   } else {
     popupCloseButton.style.background = 'transparent';
   }
-
-  //console.log(event.target)
 }
-
-/*function deactivatePopupCloseButton() {
-  const popupCloseButton = document.querySelector('.popup__button_close');
-  if (event.target === popup ||
-      event.target === popupCloseButton) {
-    popupCloseButton.style.background = '#F1CDB3';
-  }
-
-
-  const popupCloseButton = document.querySelector('.popup__button_close');
-  popupCloseButton.style.background = 'transparent';
-}*/
 
 // add default slider to main page
 (async () => {
@@ -235,6 +223,3 @@ window.addEventListener('resize', () => {
     showSliderPage(1);
   }
 });
-
-popup.addEventListener('mouseover', activatePopupCloseButton);
-//popup.addEventListener('mouseout', deactivatePopupCloseButton);

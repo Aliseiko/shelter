@@ -127,11 +127,13 @@ function openPopup() {
   let pet = pets.find(el => el.name === petName);
   popup.innerHTML = createPopup(pet);
   popup.classList.add('popup_active');
+  popup.addEventListener('mouseover', activatePopupCloseButton);
 }
 
 function closePopup() {
   if (event.target === popup ||
       event.target === document.querySelector('.popup__button')) {
+    popup.removeEventListener('mouseover', activatePopupCloseButton);
     popup.classList.remove('popup_active');
     popup.innerHTML = '';
   }
@@ -145,8 +147,6 @@ function activatePopupCloseButton() {
   } else {
     popupCloseButton.style.background = 'transparent';
   }
-
-  //console.log(event.target)
 }
 
 // add default slider to main page
@@ -163,6 +163,3 @@ document.querySelector('.slider__button_left').addEventListener('click', () => {
 document.querySelector('.slider__button_right').addEventListener('click', () => {
   sliderSlide('right');
 })
-
-popup.addEventListener('mouseover', activatePopupCloseButton);
-//popup.addEventListener('mouseout', deactivatePopupCloseButton);
