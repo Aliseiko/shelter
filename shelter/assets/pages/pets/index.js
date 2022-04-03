@@ -110,7 +110,8 @@ function showSliderPage(pageNumber) {
 }
 
 function setMaxPageNumberAndScreenSize() {
-  let width = document.documentElement.scrollWidth;
+  //let width = document.documentElement.scrollWidth;
+  let width = window.innerWidth;
   if (width >= 1280) {
     maxPageNumber = Math.ceil(generatedPetsNames.length / 8);
     screenSize = 'large';
@@ -215,7 +216,8 @@ lastButton.addEventListener('click', () => {
 })
 
 window.addEventListener('resize', () => {
-  let width = document.documentElement.scrollWidth;
+  //let width = document.documentElement.scrollWidth;
+  let width = window.innerWidth;
   if ((width >= 1280 && screenSize !== 'large') ||
       (width < 1280 && width >= 768 && screenSize !== 'medium') ||
       (width < 768 && screenSize !== 'small')) {
