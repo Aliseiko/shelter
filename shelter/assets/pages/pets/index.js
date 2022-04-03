@@ -86,8 +86,10 @@ function createSlide(petsNamesArr) {
 }
 
 function showSliderPage(pageNumber) {
-  let pageNumberForTranslate = pageNumber - 1;
-  document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * 40px))`;
+  let pageNumberForTranslate = pageNumber - 1,
+  translateGap = (screenSize === 'large') ? `calc((100% - 4 * 270px)/3)` : '40px';
+  //document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * 40px))`;
+  document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * ${translateGap}))`;
   document.querySelector('.slider__button_page-number').textContent = pageNumber;
   if (pageNumber === 1) {
     firstButton.classList.add('button-inactive');

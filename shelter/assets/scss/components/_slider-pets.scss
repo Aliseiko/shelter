@@ -40,9 +40,10 @@
   list-style: none;
   transition: 0.3s;
   transform: translateX(0);
-  gap: 30px 40px;
+  gap: 30px calc((100% - 4 * 270px)/3);
   @media (max-width: 1279px) {
     max-height: 1365px;
+    gap: 30px 40px;
   }
 }
 
