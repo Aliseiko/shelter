@@ -40,10 +40,6 @@ nav.addEventListener('click', event => {
 })
 
 // --------------- pets slider ------------------
-async function getPets() {
-  let response = await fetch('../../pets.json');
-  return await response.json();
-}
 
 function generateRandomPetsNames() {
   let names = [...defaultMainSliderPetsNames],
@@ -205,13 +201,19 @@ function activatePopupCloseButton() {
 }
 
 // add default slider to main page
-(async () => {
-  pets = await getPets();
-  pets.forEach(el => petsNames.push(el.name));
-  generateRandomPetsNames();
-  setMaxPageNumberAndScreenSize();
-  createSlider(generatedPetsNames);
-})();
+
+fetch('../../pets.json')
+    .then(response => response.json())
+    .then(res => {
+      pets = res;
+      pets.forEach(el => petsNames.push(el.name));
+      generateRandomPetsNames();
+      setMaxPageNumberAndScreenSize();
+      createSlider(generatedPetsNames);
+    })
+    .catch(error => {
+      document.querySelector('.slider__wrapper').textContent = 'Can\'t load slider';
+    })
 
 leftButton.addEventListener('click', () => {
   sliderSlide('left');
