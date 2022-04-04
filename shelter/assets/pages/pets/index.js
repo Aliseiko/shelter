@@ -73,23 +73,35 @@ function createCard(petName) {
   return card;
 }
 
-function createSlide(petsNamesArr) {
-  let slide = document.querySelector('.slider__body'),
+function createSlider(petsNamesArr) {
+  let slidesCount = (screenSize === 'large') ? 8 : (screenSize === 'medium') ? 6 : 3,
+      slider = document.querySelector('.slider__wrapper'),
+      slideHTML = '',
+      slidesArr = [];
+
+  slider.innerHTML = '';
+
+  for (let i = 0; i < petsNamesArr.length; i++) {
+    slideHTML += createCard(petsNamesArr[i]);
+    if (i + 1 === undefined || (i + 1) % slidesCount === 0) {
+      slidesArr.push(slideHTML);
       slideHTML = '';
-  petsNamesArr.forEach(el => slideHTML += createCard(el));
-  slide.innerHTML = slideHTML;
-  let cards = slide.children;
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].classList.add(`slider-card-${i + 1}`);
+    }
   }
-  return slide;
+
+  slidesArr.forEach(el => {
+    let slide = document.createElement('div');
+    slide.classList.add('slider__slide');
+    slide.innerHTML = el;
+    slider.append(slide);
+  })
+
+  slider.firstElementChild.classList.add('slider__slide_1');
 }
 
 function showSliderPage(pageNumber) {
-  let pageNumberForTranslate = pageNumber - 1,
-  translateGap = (screenSize === 'large') ? `calc((100% - 4 * 270px)/3)` : '40px';
-  //document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * 40px))`;
-  document.querySelector('.slider__body').style.transform = `translateX(calc(-${pageNumberForTranslate}00% - ${pageNumberForTranslate} * ${translateGap}))`;
+  let pageNumberForShift = pageNumber - 1;
+  document.querySelector('.slider__slide_1').style.marginLeft = `-${pageNumberForShift}00%`;
   document.querySelector('.slider__button_page-number').textContent = pageNumber;
   if (pageNumber === 1) {
     firstButton.classList.add('button-inactive');
@@ -197,8 +209,8 @@ function activatePopupCloseButton() {
   pets = await getPets();
   pets.forEach(el => petsNames.push(el.name));
   generateRandomPetsNames();
-  createSlide(generatedPetsNames);
   setMaxPageNumberAndScreenSize();
+  createSlider(generatedPetsNames);
 })();
 
 leftButton.addEventListener('click', () => {
@@ -224,6 +236,7 @@ window.addEventListener('resize', () => {
       (width < 1280 && width >= 768 && screenSize !== 'medium') ||
       (width < 768 && screenSize !== 'small')) {
     setMaxPageNumberAndScreenSize();
+    createSlider(generatedPetsNames);
     showSliderPage(1);
   }
 });
