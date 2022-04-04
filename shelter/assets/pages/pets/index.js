@@ -4,7 +4,6 @@ const burgerButton = document.querySelector('.burger'),
     logo = document.querySelector('.logo'),
     popup = document.querySelector('.popup'),
     defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
-    petsNames = [],
     generatedPetsNames = [],
     firstButton = document.querySelector('.slider__button_page-first'),
     leftButton = document.querySelector('.slider__button_page-left'),
@@ -14,7 +13,8 @@ const burgerButton = document.querySelector('.burger'),
 let pets,
     currentSliderPageNumber = 1,
     maxPageNumber,
-    screenSize;
+    screenSize,
+    petsNames;
 
 // --------------- open / close menu ------------------
 function openCloseMenu() {
@@ -206,7 +206,7 @@ fetch('../../pets.json')
     .then(response => response.json())
     .then(res => {
       pets = res;
-      pets.forEach(el => petsNames.push(el.name));
+      petsNames = pets.map(el => el.name);
       generateRandomPetsNames();
       setMaxPageNumberAndScreenSize();
       createSlider(generatedPetsNames);
