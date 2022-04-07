@@ -9,25 +9,18 @@ let pets,
     currentSliderPetsNames = defaultMainSliderPetsNames;
 
 // --------------- open / close menu ------------------
-function openCloseMenu() {
-  menuCover.classList.toggle('nav__cover_active');
-  burgerButton.classList.toggle('burger_active');
-  nav.classList.toggle('nav_active');
-  logo.classList.toggle('logo_mobile-menu-active');
+function openCloseMenu(action = 'toggle') {
+  menuCover.classList[action]('nav__cover_active');
+  burgerButton.classList[action]('burger_active');
+  nav.classList[action]('nav_active');
+  logo.classList[action]('logo_mobile-menu-active');
 }
 
-function closeMenu() {
-  menuCover.classList.remove('nav__cover_active');
-  burgerButton.classList.remove('burger_active');
-  nav.classList.remove('nav_active');
-  logo.classList.remove('logo_mobile-menu-active');
-}
-
-burgerButton.addEventListener('click', openCloseMenu);
-menuCover.addEventListener('click', closeMenu);
+burgerButton.addEventListener('click', () => openCloseMenu());
+menuCover.addEventListener('click', () => openCloseMenu('remove'));
 nav.addEventListener('click', event => {
   if (event.target.classList.contains('menu__link')) {
-    closeMenu()
+    openCloseMenu('remove');
   }
 })
 

@@ -3,54 +3,44 @@ const burgerButton = document.querySelector('.burger'),
     nav = document.querySelector('.nav'),
     logo = document.querySelector('.logo'),
     popup = document.querySelector('.popup'),
-    defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
-    generatedPetsNames = [],
     firstButton = document.querySelector('.slider__button_page-first'),
     leftButton = document.querySelector('.slider__button_page-left'),
     rightButton = document.querySelector('.slider__button_page-right'),
     lastButton = document.querySelector('.slider__button_page-last');
 
 let pets,
+    generatedPetsNames,
     currentSliderPageNumber = 1,
     maxPageNumber,
-    screenSize,
-    petsNames;
+    screenSize;
 
 // --------------- open / close menu ------------------
-function openCloseMenu() {
-  menuCover.classList.toggle('nav__cover_active');
-  burgerButton.classList.toggle('burger_active');
-  nav.classList.toggle('nav_active');
-  logo.classList.toggle('logo_mobile-menu-active');
+function openCloseMenu(action = 'toggle') {
+  menuCover.classList[action]('nav__cover_active');
+  burgerButton.classList[action]('burger_active');
+  nav.classList[action]('nav_active');
+  logo.classList[action]('logo_mobile-menu-active');
 }
 
-function closeMenu() {
-  menuCover.classList.remove('nav__cover_active');
-  burgerButton.classList.remove('burger_active');
-  nav.classList.remove('nav_active');
-  logo.classList.remove('logo_mobile-menu-active');
-}
-
-burgerButton.addEventListener('click', openCloseMenu);
-menuCover.addEventListener('click', closeMenu);
+burgerButton.addEventListener('click', () => openCloseMenu());
+menuCover.addEventListener('click', () => openCloseMenu('remove'));
 nav.addEventListener('click', event => {
   if (event.target.classList.contains('menu__link')) {
-    closeMenu()
+    openCloseMenu('remove');
   }
 })
 
 // --------------- pets slider ------------------
 
 function generateRandomPetsNames() {
-  let names = [...defaultMainSliderPetsNames],
+  let names = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
       names1 = names.slice(0, Math.floor(names.length / 2)),
       names2 = names.slice(Math.floor(names.length / 2), names.length);
 
   for (let i = 1; i <= 5; i++) {
     names = names.concat([...names1].sort(() => Math.random() - 0.5), [...names2].sort(() => Math.random() - 0.5));
   }
-  generatedPetsNames.push(...names);
-  return names;
+  generatedPetsNames = names;
 }
 
 function createCard(petName) {
@@ -79,7 +69,7 @@ function createSlider(petsNamesArr) {
 
   for (let i = 0; i < petsNamesArr.length; i++) {
     slideHTML += createCard(petsNamesArr[i]);
-    if (i + 1 === undefined || (i + 1) % slidesCount === 0) {
+    if (petsNamesArr[i + 1] === undefined || (i + 1) % slidesCount === 0) {
       slidesArr.push(slideHTML);
       slideHTML = '';
     }
@@ -206,7 +196,7 @@ fetch('../../pets.json')
     .then(response => response.json())
     .then(res => {
       pets = res;
-      petsNames = pets.map(el => el.name);
+      //petsNames = pets.map(el => el.name);
       generateRandomPetsNames();
       setMaxPageNumberAndScreenSize();
       createSlider(generatedPetsNames);
