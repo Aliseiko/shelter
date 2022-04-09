@@ -6,7 +6,10 @@ const burgerButton = document.querySelector('.burger'),
     firstButton = document.querySelector('.slider__button_page-first'),
     leftButton = document.querySelector('.slider__button_page-left'),
     rightButton = document.querySelector('.slider__button_page-right'),
-    lastButton = document.querySelector('.slider__button_page-last');
+    lastButton = document.querySelector('.slider__button_page-last'),
+    pageNumberButton = document.querySelector('.slider__button_page-number'),
+    namesForSlides = [],
+    slider = document.querySelector('.slider__body');
 
 let pets,
     generatedPetsNames,
@@ -43,6 +46,21 @@ function generateRandomPetsNames() {
   generatedPetsNames = names;
 }
 
+function createNamesForSlides() {
+  const slidesCount = (screenSize === 'large') ? 8 : (screenSize === 'medium') ? 6 : 3,
+      namesArr = [];
+
+  namesForSlides.length = 0;
+
+  generatedPetsNames.forEach((el, index, arr) => {
+    namesArr.push(el);
+    if (index === arr.length - 1 || (index + 1) % slidesCount === 0) {
+      namesForSlides.push([...namesArr]);
+      namesArr.length = 0;
+    }
+  })
+}
+
 function createCard(petName) {
   let pet = pets.find(el => el.name === petName);
 
@@ -59,86 +77,99 @@ function createCard(petName) {
   return card;
 }
 
-function createSlider(petsNamesArr) {
-  let slidesCount = (screenSize === 'large') ? 8 : (screenSize === 'medium') ? 6 : 3,
-      slider = document.querySelector('.slider__wrapper'),
-      slideHTML = '',
-      slidesArr = [];
-
-  slider.innerHTML = '';
-
-  for (let i = 0; i < petsNamesArr.length; i++) {
-    slideHTML += createCard(petsNamesArr[i]);
-    if (petsNamesArr[i + 1] === undefined || (i + 1) % slidesCount === 0) {
-      slidesArr.push(slideHTML);
-      slideHTML = '';
-    }
-  }
-
-  slidesArr.forEach(el => {
-    let slide = document.createElement('div');
-    slide.classList.add('slider__slide');
-    slide.innerHTML = el;
-    slider.append(slide);
-  })
-
-  slider.firstElementChild.classList.add('slider__slide_1');
+function createSlide(pageNumber) {
+  let slide = document.createElement('div');
+  slide.classList.add('slider__slide');
+  let slideHTML = '';
+  namesForSlides[pageNumber - 1].forEach(el => slideHTML += createCard(el));
+  slide.innerHTML = slideHTML;
+  return slide;
 }
 
-function showSliderPage(pageNumber) {
-  let pageNumberForShift = pageNumber - 1;
-  document.querySelector('.slider__slide_1').style.marginLeft = `-${pageNumberForShift}00%`;
-  document.querySelector('.slider__button_page-number').textContent = pageNumber;
-  if (pageNumber === 1) {
-    firstButton.classList.add('button-inactive');
-    leftButton.classList.add('button-inactive');
-    rightButton.classList.remove('button-inactive');
-    lastButton.classList.remove('button-inactive');
-  } else if (pageNumber === maxPageNumber) {
-    firstButton.classList.remove('button-inactive');
-    leftButton.classList.remove('button-inactive');
-    rightButton.classList.add('button-inactive');
-    lastButton.classList.add('button-inactive');
-  } else {
-    firstButton.classList.remove('button-inactive');
-    leftButton.classList.remove('button-inactive');
-    rightButton.classList.remove('button-inactive');
-    lastButton.classList.remove('button-inactive');
+function createSlider() {
+  slider.innerHTML = '';
+  slider.append(createSlide(1));
+  currentSliderPageNumber = 1;
+  pageNumberButton.textContent = 1;
+  markButtons(1);
+}
+
+function showSliderPage(pageNumber, direction) {
+  const nextSlide = createSlide(pageNumber),
+      left = {
+        side: 'left',
+        action: 'prepend',
+        child: 1
+      },
+      right = {
+        side: 'right',
+        action: 'append',
+        child: 0
+      };
+
+  if (pageNumber !== currentSliderPageNumber) {
+    const rule = (direction === 'left' || direction === 'first') ? left : right;
+
+    slider.classList.add(`slider__body_${rule.side}`);
+    slider[rule.action](nextSlide);
+    setTimeout(() => {
+      slider.children[rule.child].remove();
+      slider.classList.remove(`slider__body_${rule.side}`);
+    }, 300);
   }
 
+  pageNumberButton.textContent = pageNumber;
+  markButtons(pageNumber);
   currentSliderPageNumber = pageNumber;
 }
 
+function markButtons(pageNumber) {
+  function mark(firstButtonAction, leftButtonAction, rightButtonAction, lastButtonAction) {
+    [firstButton, leftButton, rightButton, lastButton].forEach((el, i) => {
+      el.classList[arguments[i] || 'remove']('button-inactive');
+    })
+  }
+
+  if (pageNumber === 1) {
+    mark('add', 'add');
+  } else if (pageNumber === maxPageNumber) {
+    mark('remove', 'remove', 'add', 'add');
+  } else {
+    mark();
+  }
+}
+
 function setMaxPageNumberAndScreenSize() {
-  //let width = document.documentElement.scrollWidth;
   let width = window.innerWidth;
   if (width >= 1280) {
-    maxPageNumber = Math.ceil(generatedPetsNames.length / 8);
     screenSize = 'large';
   } else if (width < 1280 && width >= 768) {
-    maxPageNumber = Math.ceil(generatedPetsNames.length / 6);
     screenSize = 'medium';
   } else {
-    maxPageNumber = Math.ceil(generatedPetsNames.length / 3);
     screenSize = 'small';
   }
+
+  maxPageNumber = Math.ceil(generatedPetsNames.length / ((screenSize === 'large') ? 8 : (screenSize === 'medium') ? 6 : 3));
 }
 
 function sliderSlide(direction = 'right') {
+  let page = currentSliderPageNumber;
   if (direction === 'right') {
-    currentSliderPageNumber++;
-    if (currentSliderPageNumber > maxPageNumber) currentSliderPageNumber = maxPageNumber;
+    page++;
+    if (page > maxPageNumber) page = maxPageNumber;
   } else if (direction === 'left') {
-    currentSliderPageNumber--;
-    if (currentSliderPageNumber < 1) currentSliderPageNumber = 1;
+    page--;
+    if (page < 1) page = 1;
   } else if (direction === 'first') {
-    currentSliderPageNumber = 1;
+    page = 1;
   } else if (direction === 'last') {
-    currentSliderPageNumber = maxPageNumber;
+    page = maxPageNumber;
   }
 
-  showSliderPage(currentSliderPageNumber);
+  showSliderPage(page, direction);
 }
+
+// --------------- Popup ------------------
 
 function createPopup(pet) {
   let popup = `<div class="popup__body">
@@ -190,19 +221,25 @@ function activatePopupCloseButton() {
   }
 }
 
+// --------------- Popup End------------------
+
+function initFunctions() {
+  setMaxPageNumberAndScreenSize();
+  createNamesForSlides();
+  createSlider();
+}
+
 // add default slider to main page
 
 fetch('../../pets.json')
     .then(response => response.json())
     .then(res => {
       pets = res;
-      //petsNames = pets.map(el => el.name);
       generateRandomPetsNames();
-      setMaxPageNumberAndScreenSize();
-      createSlider(generatedPetsNames);
+      initFunctions();
     })
     .catch(error => {
-      document.querySelector('.slider__wrapper').textContent = 'Can\'t load slider';
+      slider.textContent = 'Can\'t load slider';
     })
 
 leftButton.addEventListener('click', () => {
@@ -222,13 +259,10 @@ lastButton.addEventListener('click', () => {
 })
 
 window.addEventListener('resize', () => {
-  //let width = document.documentElement.scrollWidth;
   let width = window.innerWidth;
   if ((width >= 1280 && screenSize !== 'large') ||
       (width < 1280 && width >= 768 && screenSize !== 'medium') ||
       (width < 768 && screenSize !== 'small')) {
-    setMaxPageNumberAndScreenSize();
-    createSlider(generatedPetsNames);
-    showSliderPage(1);
+    initFunctions();
   }
 });

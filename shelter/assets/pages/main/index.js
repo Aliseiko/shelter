@@ -4,7 +4,8 @@ const burgerButton = document.querySelector('.burger'),
     popup = document.querySelector('.popup'),
     logo = document.querySelector('.logo'),
     defaultMainSliderPetsNames = ['Katrine', 'Jennifer', 'Woody'],
-    petsNames = [];
+    petsNames = [],
+    slider = document.querySelector('.slider__body');
 let pets,
     currentSliderPetsNames = defaultMainSliderPetsNames;
 
@@ -25,11 +26,6 @@ nav.addEventListener('click', event => {
 })
 
 // --------------- main slider ------------------
-async function getPets() {
-  let response = await fetch('../../pets.json');
-  return await response.json();
-}
-
 function createCard(petName) {
   let pet = pets.find(el => el.name === petName);
 
@@ -72,23 +68,27 @@ function createNextSlidePetsNames() {
 
 function sliderSlide(direction) {
   let nextSlidePetsNames = createNextSlidePetsNames(),
-      slider = document.querySelector('.slider__body'),
       slide = createSlide(nextSlidePetsNames);
-  if (direction === 'left') {
-    slider.classList.add('slider__body_left');
-    slider.prepend(slide);
-    setTimeout(() => {
-      slider.children[1].remove();
-      slider.classList.remove('slider__body_left');
-    }, 600);
-  } else if (direction === 'right') {
-    slider.classList.add('slider__body_right');
-    slider.append(slide);
-    setTimeout(() => {
-      slider.children[0].remove();
-      slider.classList.remove('slider__body_right');
-    }, 600);
-  }
+
+  const left = {
+        side: 'left',
+        action: 'prepend',
+        child: 1
+      },
+      right = {
+        side: 'right',
+        action: 'append',
+        child: 0
+      },
+      rule = (direction === 'left') ? left : right;
+
+  slider.classList.add(`slider__body_${rule.side}`);
+  slider[rule.action](slide);
+  setTimeout(() => {
+    slider.children[rule.child].remove();
+    slider.classList.remove(`slider__body_${rule.side}`);
+  }, 600);
+  
   currentSliderPetsNames = nextSlidePetsNames;
 }
 
@@ -143,11 +143,17 @@ function activatePopupCloseButton() {
 }
 
 // add default slider to main page
-(async () => {
-  pets = await getPets();
-  pets.forEach(el => petsNames.push(el.name));
-  document.querySelector('.slider__body').append(createSlide(defaultMainSliderPetsNames));
-})();
+
+fetch('../../pets.json')
+    .then(response => response.json())
+    .then(res => {
+      pets = res;
+      pets.forEach(el => petsNames.push(el.name));
+      slider.append(createSlide(defaultMainSliderPetsNames));
+    })
+    .catch(error => {
+      slider.textContent = 'Can\'t load slider';
+    })
 
 document.querySelector('.slider__button_left').addEventListener('click', () => {
   sliderSlide('left');
