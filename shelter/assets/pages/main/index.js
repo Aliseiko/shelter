@@ -82,13 +82,16 @@ function sliderSlide(direction) {
       },
       rule = (direction === 'left') ? left : right;
 
-  slider.classList.add(`slider__body_${rule.side}`);
-  slider[rule.action](slide);
-  setTimeout(() => {
+  function removeSlide() {
     slider.children[rule.child].remove();
     slider.classList.remove(`slider__body_${rule.side}`);
-  }, 600);
-  
+    slider.removeEventListener('transitionend', removeSlide);
+  }
+
+  slider.classList.add(`slider__body_${rule.side}`);
+  slider[rule.action](slide);
+  slider.addEventListener('transitionend', removeSlide);
+
   currentSliderPetsNames = nextSlidePetsNames;
 }
 

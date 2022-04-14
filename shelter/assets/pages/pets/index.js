@@ -110,12 +110,15 @@ function showSliderPage(pageNumber, direction) {
   if (pageNumber !== currentSliderPageNumber) {
     const rule = (direction === 'left' || direction === 'first') ? left : right;
 
-    slider.classList.add(`slider__body_${rule.side}`);
-    slider[rule.action](nextSlide);
-    setTimeout(() => {
+    function removeSlide() {
       slider.children[rule.child].remove();
       slider.classList.remove(`slider__body_${rule.side}`);
-    }, 300);
+      slider.removeEventListener('transitionend', removeSlide);
+    }
+
+    slider.classList.add(`slider__body_${rule.side}`);
+    slider[rule.action](nextSlide);
+    slider.addEventListener('transitionend', removeSlide);
   }
 
   pageNumberButton.textContent = pageNumber;
