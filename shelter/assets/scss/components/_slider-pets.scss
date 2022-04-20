@@ -32,7 +32,7 @@
 }
 
 .slider__slide {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   width: 100%;
@@ -53,20 +53,21 @@
 }
 
 .slider__body {
-  position: relative;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 900px;
-  margin: 0;
-  list-style: none;
-  transition: 0.3s;
+  width: 100%;
   transform: translateX(0);
-  gap: 30px calc((100% - 4 * 270px) / 3);
-  @media (max-width: 1279px) {
-    max-height: 1365px;
-    gap: 30px 40px;
-  }
+}
+
+.slider__body_left {
+  justify-content: flex-end;
+  transition: 0.3s;
+  transform: translateX(100%);
+}
+
+.slider__body_right {
+  justify-content: flex-start;
+  transition: 0.3s;
+  transform: translateX(-100%);
 }
 
 .slider-card {
