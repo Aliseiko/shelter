@@ -15,11 +15,22 @@ let pets,
     screenSize;
 
 // --------------- open / close menu ------------------
+
+function disableScroll() {
+  if (nav.classList.contains('nav_active') ||
+      popup.classList.contains('popup_active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.removeAttribute('style');
+  }
+}
+
 function openCloseMenu(action = 'toggle') {
   menuCover.classList[action]('nav__cover_active');
   burgerButton.classList[action]('burger_active');
   nav.classList[action]('nav_active');
   logo.classList[action]('logo_mobile-menu-active');
+  disableScroll();
 }
 
 burgerButton.addEventListener('click', () => openCloseMenu());
@@ -168,6 +179,7 @@ function openPopup() {
   let pet = pets.find(el => el.name === petName);
   popup.innerHTML = createPopup(pet);
   popup.classList.add('popup_active');
+  disableScroll();
   popup.addEventListener('mouseover', activatePopupCloseButton);
 }
 
@@ -176,6 +188,7 @@ function closePopup() {
       event.target === document.querySelector('.popup__button')) {
     popup.removeEventListener('mouseover', activatePopupCloseButton);
     popup.classList.remove('popup_active');
+    disableScroll();
     popup.innerHTML = '';
   }
 }
