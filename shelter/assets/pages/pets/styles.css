@@ -923,6 +923,12 @@ html {
   }
 }
 
+@media (max-width: 767px) {
+  .nav_pets {
+    background: #ffffff;
+  }
+}
+
 .nav_active {
   right: 0;
   z-index: 5;
@@ -956,11 +962,9 @@ html {
 }
 .menu__item:hover .menu__link_pets {
   color: #292929;
-}
-@media (max-width: 767px) {
-  .menu__item:hover .menu__link_pets {
-    color: #FAFAFA;
-  }
+  /*@media (max-width: 767px) {
+    color: $color-light-s;
+  }*/
 }
 
 .menu__item_active {
@@ -972,11 +976,9 @@ html {
 }
 .menu__item_active .menu__link_pets {
   color: #292929;
-}
-@media (max-width: 767px) {
-  .menu__item_active .menu__link_pets {
-    color: #FAFAFA;
-  }
+  /*@media (max-width: 767px) {
+    color: $color-light-s;
+  }*/
 }
 
 .menu__link {
@@ -991,11 +993,9 @@ html {
 
 .menu__link_pets {
   color: #545454;
-}
-@media (max-width: 767px) {
-  .menu__link_pets {
-    color: #CDCDCD;
-  }
+  /*@media (max-width: 767px) {
+    color: $color-dark-s;
+  }*/
 }
 
 .nav__cover {
@@ -1041,7 +1041,7 @@ html {
   transform: rotate(90deg);
 }
 .burger_active .burger-line_pets {
-  background-color: #F1CDB3;
+  background-color: #000000;
 }
 
 .burger-line {
