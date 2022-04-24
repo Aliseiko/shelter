@@ -49,12 +49,13 @@ nav.addEventListener('click', event => {
 function generateRandomPetsNames() {
   let names = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'],
       names1 = names.slice(0, Math.floor(names.length / 2)),
-      names2 = names.slice(Math.floor(names.length / 2), names.length);
+      names2 = names.slice(Math.floor(names.length / 2), names.length),
+      resultNames = [];
 
-  for (let i = 1; i <= 5; i++) {
-    names = names.concat([...names1].sort(() => Math.random() - 0.5), [...names2].sort(() => Math.random() - 0.5));
+  for (let i = 0; i <= 5; i++) {
+    resultNames = resultNames.concat([...names1].sort(() => Math.random() - 0.5), [...names2].sort(() => Math.random() - 0.5));
   }
-  generatedPetsNames = names;
+  generatedPetsNames = resultNames;
 }
 
 function createNamesForSlides() {
